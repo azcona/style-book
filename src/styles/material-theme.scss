@@ -1,0 +1,67 @@
+@use "sass:map";
+@use "sass:meta";
+@use '@angular/material' as mat;
+
+@function theme($theme) {
+
+  $primary-color: map.get($theme, primary-color);
+  $primary-palette: mat.define-palette($primary-color, 500, 100, 100, 500);
+
+  $accent-color: map.get($theme, accent-color);
+  $accent-palette: mat.define-palette($accent-color, 500, 100, 100, 500);
+
+  $neutral-color: map.get($theme, neutral-color);
+  $neutral-palette: mat.define-palette($neutral-color, 500, 100, 100, 500);
+
+  $error-color: map.get($theme, error-color);
+  $error-palette: mat.define-palette($error-color, 500, 100, 100, 500);
+
+  $info-color: map.get($theme, info-color);
+  $info-palette: mat.define-palette($info-color, 500, 100, 100, 500);
+
+  $warning-color: map.get($theme, warning-color);
+  $warning-palette: mat.define-palette($warning-color, 500, 100, 100, 500);
+
+  $success-color: map.get($theme, success-color);
+  $success-palette: mat.define-palette($success-color, 500, 100, 100, 500);
+
+  $default-theme: mat.define-light-theme((
+    color: (
+      primary: $primary-palette,
+      accent: $accent-palette,
+      warn: $warning-palette
+    )
+  ));
+
+  $error-theme: mat.define-light-theme((
+    color: (
+      primary: $error-palette,
+      accent: $error-palette,
+      warn: $error-palette
+    )
+  ));
+
+  $info-theme: mat.define-light-theme((
+    color: (
+      primary: $info-palette,
+      accent: $info-palette,
+      warn: $info-palette
+    )
+  ));
+
+  $success-theme: mat.define-light-theme((
+    color: (
+      primary: $success-palette,
+      accent: $success-palette,
+      warn: $success-palette
+    )
+  ));
+
+  @return (
+    default-theme: $default-theme,
+    error-theme: $error-theme,
+    info-theme: $info-theme,
+    success-theme: $success-theme
+  );
+
+}

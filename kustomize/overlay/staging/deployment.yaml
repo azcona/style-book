@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: style-book-front
+  name: style-book-front
+spec:
+  selector:
+    matchLabels:
+      app: style-book-front
+  template:
+    metadata:
+      labels:
+        app: style-book-front
+    spec:
+      containers:
+        - name: style-book-front
+          image: image
+          resources:
+            limits:
+              cpu: 700m
+              memory: 512Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi

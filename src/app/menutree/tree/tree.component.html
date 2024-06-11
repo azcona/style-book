@@ -1,0 +1,76 @@
+<h3>Tree</h3>
+
+<article class="grid grid--auto-column-l">
+  <div class="box box--bg-neutral">
+    <section class="item-info item-info--gap-m height-size--s">
+      <section class="flex flex--space-between">
+        <div class="header-text">
+          <span class="typography-overline">OVERLINE</span>
+          <h4 class="typography-headline-4 header-text__title">Headline 4</h4>
+          <p class="typography-body-2">Body 2</p>
+        </div>
+      </section>
+    </section>
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+        <button mat-icon-button disabled></button>
+        <mat-checkbox class="sw-mat-primary"
+                      [checked]="checklistSelection.isSelected(node)"
+                      (change)="todoLeafItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
+      </mat-tree-node>
+
+      <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'Toggle ' + node.item">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        <mat-checkbox class="sw-mat-primary"
+                      [checked]="descendantsAllSelected(node)"
+                      [indeterminate]="descendantsPartiallySelected(node)"
+                      (change)="todoItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
+      </mat-tree-node>
+    </mat-tree>
+  </div>
+
+  <div class="box box--bg-neutral">
+    <section class="item-info item-info--gap-m height-size--s">
+      <section class="flex flex--space-between">
+        <div class="header-text">
+          <span class="typography-overline">OVERLINE</span>
+          <h4 class="typography-headline-4 header-text__title">Headline 4</h4>
+          <p class="typography-body-2">Body 2</p>
+        </div>
+        <div class="header-image">
+          <img src="assets/png/img.small.png" alt="Avatar Photo">
+        </div>
+      </section>
+    </section>
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+        <button mat-icon-button disabled></button>
+        <div class="header-text">
+          <p class="typography-overline">OVERLINE</p>
+          <div>
+            {{node.item}}
+          </div>
+        </div>
+      </mat-tree-node>
+
+      <mat-tree-node *matTreeNodeDef="let node; when: hasChild">
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'Toggle ' + node.item">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        <h3>
+          {{node.item}}
+        </h3>
+      </mat-tree-node>
+    </mat-tree>
+  </div>
+</article>
+
+

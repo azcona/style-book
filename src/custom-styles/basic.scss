@@ -1,0 +1,29 @@
+html {
+  body {
+    height: 100vh;
+    margin: 0;
+    font-family: Nunito, "Helvetica Neue", sans-serif;
+    background: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    font-style: normal;
+  }
+}
+
+.notes {
+  background: #efefef;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 3px solid #e5e5e5;
+  width: fit-content;
+}
+
+.code {
+  font-family: "Courier New";
+  background: #c9c9c9b0;
+  color: #a605b7;
+  font-weight: bold;
+  padding: 2px 4px;
+}
+
+

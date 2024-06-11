@@ -1,0 +1,20 @@
+@use "sass:map";
+
+@function unthemed($tokens) {
+  $color: map.get($tokens, info-700);
+  $color-hovered: map.get($tokens, info-600);
+  $color-pressed: map.get($tokens, info-500);
+
+  $dark-color: map.get($tokens, info-300);
+  $dark-color-change: map.get($tokens, info-400);
+
+  @return (
+    color: $color,
+    color-hovered: $color-hovered,
+    color-pressed: $color-pressed,
+    dark-color: $dark-color,
+    dark-color-hovered: $dark-color-change,
+    dark-color-pressed: $dark-color-change,
+  );
+}
+

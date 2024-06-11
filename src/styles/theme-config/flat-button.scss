@@ -1,0 +1,275 @@
+@use "sass:map";
+
+$default-overlay-opacity: 0.8;
+
+@function unthemed($tokens) {
+  @return (
+    type: flat,
+    theme: unthemed,
+    color: map.get($tokens, on-surface-high-emphasis),
+    background-color: var(--sw-surface, map.get($tokens, surface)),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    hover: (
+      overlay-color: map.get($tokens, states-black-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-black-overlay-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-black-overlay-pressed),
+    )
+  );
+}
+
+@function primary($tokens) {
+  @return (
+    type: flat,
+    theme: primary,
+    color: map.get($tokens, on-primary-high-emphasis),
+    background-color: map.get($tokens, primary),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface-overlay)),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function accent($tokens) {
+  @return (
+    type: flat,
+    theme: accent,
+    color: map.get($tokens, on-secondary-high-emphasis),
+    background-color: map.get($tokens, secondary),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function success($tokens) {
+  @return (
+    type: flat,
+    theme: success,
+    color: map.get($tokens, on-success-high-emphasis),
+    background-color: map.get($tokens, success-700),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function info($tokens) {
+  @return (
+    type: flat,
+    theme: info,
+    color: map.get($tokens, on-link-high-emphasis),
+    background-color: map.get($tokens, info-700),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function warn($tokens) {
+  @return (
+    type: flat,
+    theme: warn,
+    color: map.get($tokens, on-warn-high-emphasis),
+    background-color: map.get($tokens, warning-700),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function error($tokens) {
+  @return (
+    type: flat,
+    theme: error,
+    color: map.get($tokens, on-error-high-emphasis),
+    background-color: map.get($tokens, error),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function primary-inv($tokens) {
+  @return (
+    type: flat,
+    theme: primary-inv,
+    color: map.get($tokens, on-primary-high-emphasis),
+    background-color: map.get($tokens, primary-inverted),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function accent-inv($tokens) {
+  @return (
+    type: flat,
+    theme: accent-inv,
+    color: map.get($tokens, on-secondary-variant-high-emphasis),
+    background-color: map.get($tokens, secondary-inverted),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+
+@function error-inv($tokens) {
+  @return (
+    type: flat,
+    theme: error-inv,
+    color: map.get($tokens, on-error-variant-high-emphasis),
+    background-color: map.get($tokens, error-inverted),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+

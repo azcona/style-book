@@ -1,0 +1,11 @@
+.bg-dark {
+  background-color: black;
+}
+.bg-light {
+  background-color: white;
+}
+
+.bg-dark,
+.bg-light {
+  padding: inherit;
+}

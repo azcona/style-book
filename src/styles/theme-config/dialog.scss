@@ -1,0 +1,43 @@
+@use "sass:map";
+@use "sass:color";
+
+
+
+@function unthemed($tokens) {
+  $bg-background: map.get($tokens, surface-overlay);
+  $font-color: map.get($tokens, on-surface-high-emphasis);
+  $font-family: map.get($tokens, headline-6-font-family);
+  $line-height: map.get($tokens, headline-6-line-height)+px;
+  $font-size: map.get($tokens, headline-6-font-size)+px;
+  $font-weight: map.get($tokens, headline-6-font-weight);
+  $size-m: map.get($tokens, spacing-ref-medium)+px;
+  $size-xl: map.get($tokens, spacing-ref-x-large)+px;
+  $size-xxxl: 56px;
+  $box-shadow-color: map.get($tokens, dp-24-2-color);
+  $box-shadow-x: map.get($tokens, dp-24-2-x)+px;
+  $box-shadow-y: map.get($tokens, dp-24-2-y)+px;
+  $box-shadow-blur: map.get($tokens, dp-24-2-blur)+px;
+  $box-shadow-spread: map.get($tokens, dp-24-2-spread)+px;
+  $box-shadow: $box-shadow-x $box-shadow-y $box-shadow-blur $box-shadow-spread $box-shadow-color;
+
+  @return (
+    overlay-bg-dialog: $bg-background,
+    title-font-color: $font-color,
+    title-font-family: $font-family,
+    title-line-height: $line-height,
+    title-font-size: $font-size,
+    title-font-weight: $font-weight,
+    border-radius: $size-xl,
+
+    content-padding: $size-xl $size-xxxl $size-m $size-xl,
+    actions-padding-top-bottom: $size-m,
+    actions-padding-right-left: $size-m,
+
+    bs-color: $box-shadow-color,
+    bs-x: $box-shadow-x,
+    bs-y: $box-shadow-y,
+    bs-blur: $box-shadow-blur,
+    bs-spread: $box-shadow-spread,
+    box-shadow: $box-shadow,
+  )
+}

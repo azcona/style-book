@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "sass:color";
+
+@function unthemed($tokens) {
+  $box-shadow-color: map.get($tokens, dp-04-2-color);
+  $box-shadow-x: map.get($tokens, dp-04-2-x)+px;
+  $box-shadow-y: map.get($tokens, dp-04-2-y)+px;
+  $box-shadow-blur: map.get($tokens, dp-04-2-blur)+px;
+  $box-shadow-spread: map.get($tokens, dp-04-2-spread)+px;
+  $box-shadow: $box-shadow-x $box-shadow-y $box-shadow-blur $box-shadow-spread $box-shadow-color;
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px;
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px;
+  $cell-padding: $spacing-ref-small $spacing-ref-medium;
+  $surface: map.get($tokens, surface);
+  $on-surface-high-emphasis:  map.get($tokens, on-surface-high-emphasis);
+  $outline: map.get($tokens, outline);
+  $neutral-50: map.get($tokens, neutral-50);
+
+  @return (
+    box-shadow: $box-shadow,
+    cell-padding: $cell-padding,
+    table-bg: $surface,
+    color: $on-surface-high-emphasis,
+    border-color: $outline,
+    expanded-border-color: $neutral-50,
+  );
+}

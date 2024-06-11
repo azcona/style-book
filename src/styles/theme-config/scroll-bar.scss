@@ -1,0 +1,17 @@
+@use "sass:map";
+
+@function unthemed($tokens) {
+  $main-color: map.get($tokens, on-surface-disabled);
+  $hover-color: map.get($tokens, on-surface-medium-emphasis);
+  $surface: map.get($tokens, surface);
+  $border-radius: map.get($tokens, border-radius-ref-xx-large)+px;
+  $spacing-ref: map.get($tokens, spacing-ref-small)+px;
+
+  @return (
+    color: $main-color,
+    bg-color: $surface,
+    hover: $hover-color,
+    border-radius: $border-radius,
+    size: $spacing-ref,
+  );
+}

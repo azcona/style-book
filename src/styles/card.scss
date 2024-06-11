@@ -1,0 +1,86 @@
+@use '@angular/material' as mat;
+@use 'typography' as tipography;
+@use "sass:map";
+
+
+@mixin theme($theme) {
+
+  $card-config: map.get($theme, card);
+
+  $card-on-surface: map.get($card-config, on-surface);
+  $card-surface: map.get($card-config, surface);
+  $card-on-surface-high-emphasis: map.get($card-config, on-surface-high-emphasis);
+  $card-on-surface-medium-emphasis: map.get($card-config, on-surface-medium-emphasis);
+
+  $card-header-padding: map.get($card-config, header-padding);
+  $card-content-padding: map.get($card-config, content-padding);
+  $card-actions-padding: map.get($card-config, actions-padding);
+
+
+  $card-elevation: map.get($card-config, elevation);
+  $card-elevation-color: map.get($card-config, elevation-color);
+  $card-elevation-opacity: map.get($card-config, elevation-opacity);
+  $card-border-radius: map.get($card-config, border-radius);
+
+  $card-elevation-hover: map.get($card-config, elevation-hover);
+  $card-elevation-color-hover: map.get($card-config, elevation-color-hover);
+  $card-elevation-opacity-hover: map.get($card-config, elevation-opacity-hover);
+
+
+  .mat-mdc-card {
+    @include mat.elevation($card-elevation, $card-elevation-color, $card-elevation-opacity);
+
+    &:hover {
+      @include mat.elevation($card-elevation-hover, $card-elevation-color-hover, $card-elevation-opacity-hover);
+    }
+
+    background: $card-surface;
+    color: $card-on-surface;
+    border-radius: var(--mdc-elevated-card-container-shape, var(--mdc-shape-medium, $card-border-radius));
+    display: flex;
+    justify-content: space-between;
+    min-width: 200px;
+
+    .mat-mdc-card-header {
+      padding: $card-header-padding;
+    }
+
+    .mat-mdc-card-title {
+      color: $card-on-surface-high-emphasis;
+
+      @include tipography.headline-6($theme)
+    }
+
+    .mat-mdc-card-subtitle {
+      color: $card-on-surface-medium-emphasis;
+
+      @include tipography.body-2($theme)
+    }
+
+    .mat-mdc-card-content {
+      color: $card-on-surface-medium-emphasis;
+      padding: $card-content-padding;
+
+      @include tipography.body-2($theme);
+    }
+
+    .mat-mdc-card-actions {
+      color: $card-on-surface-medium-emphasis;
+      padding: $card-actions-padding;
+    }
+  }
+
+  .card-horizontal {
+    flex-direction: row;
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &__image {
+      border-top-left-radius: 0%!important;
+      border-top-right-radius: inherit;
+      border-bottom-left-radius: 0%!important;
+    }
+  }
+}

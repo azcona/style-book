@@ -1,0 +1,9 @@
+$spacing-regular-size: 30px;
+
+.typography-container {
+  margin: $spacing-regular-size;
+  border-style: dotted;
+  border-width: 1px;
+  border-radius: $spacing-regular-size;
+  padding: 0 $spacing-regular-size;
+}

@@ -1,0 +1,40 @@
+@use "sass:map";
+@use "sass:color";
+
+@function unthemed($tokens) {
+  $border-radius: map.get($tokens, border-radius-sys-input-outlined)+px;
+  $error-color: map.get($tokens, error);
+  $surface-overlay: map.get($tokens, surface-overlay);
+  $surface-hover: map.get($tokens, states-on-surface-overlay-hover);
+  $surface-focus: map.get($tokens, states-on-surface-overlay-focused);
+  $primary-color: map.get($tokens, primary-variant2);
+  $outline: map.get($tokens, outline);
+  $surface-medium: map.get($tokens, on-surface-medium-emphasis);
+  $surface-high: map.get($tokens, on-surface-high-emphasis);
+  $surface-disabled: map.get($tokens, on-surface-disabled);
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px;
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px;
+  $spacing-ref-3-x-small: map.get($tokens, spacing-ref-3-x-small)+px;
+  $surface: map.get($tokens, surface);
+
+  @return (
+    border-radius: $border-radius,
+    error-color: $error-color,
+    primary-color: $primary-color,
+    bg-default: $surface-overlay,
+    bg-hover: $surface-hover,
+    bg-focus: $surface-focus,
+    bg-disabled: $surface-overlay,
+    input-text: $surface-high,
+    input-label-color: $surface-medium,
+    label-extra-color: $surface-disabled,
+    border-color: $outline,
+    suffix-margin: $spacing-ref-small,
+    suffix-color-disabled: $surface-disabled,
+    prefix-margin: $spacing-ref-3-x-small,
+    padding-side: $spacing-ref-medium,
+
+    bg-outlined: $surface,
+    outlined-border-color: $outline,
+  );
+}

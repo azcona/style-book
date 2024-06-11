@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "sass:color";
+
+@function unthemed($tokens) {
+  $gradient-light: map.get($tokens, gradient-light);
+  $gradient-dark: map.get($tokens, gradient-dark);
+  $alpha: 0.5;
+  $flag-size: map.get($tokens, spacing-ref-x-large)+px;
+
+  @return (
+    gradient-light: $gradient-light,
+    gradient-dark: $gradient-dark,
+    opacity: $alpha,
+    flag-image-size: $flag-size,
+  );
+}

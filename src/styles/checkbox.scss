@@ -1,0 +1,101 @@
+@use "sass:map";
+
+@mixin theme($theme) {
+
+  @include themed-checkbox($theme, primary);
+  @include themed-checkbox($theme, accent);
+  @include themed-checkbox($theme, error);
+
+}
+
+@mixin themed-checkbox($theme, $color) {
+  .mat-mdc-checkbox.sw-mat-#{$color} {
+    @include apply-theme(map.get($theme, checkbox-#{$color}), $color);
+  }
+}
+
+.mat-mdc-checkbox.sw-mat-unthemed .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
+.mat-mdc-checkbox.sw-mat-unthemed .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,
+.mat-mdc-checkbox.sw-mat-unthemed .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background,
+.mat-mdc-checkbox.sw-mat-unthemed .mdc-checkbox:hover .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
+.mat-mdc-checkbox.sw-mat-unthemed .mdc-checkbox:hover .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background {
+  border-color: transparent;
+}
+
+.mat-mdc-checkbox .mdc-checkbox:hover .mdc-checkbox__native-control:not([disabled])~.mdc-checkbox__ripple,
+.mat-mdc-checkbox .mdc-checkbox:hover .mdc-checkbox__native-control:not([disabled])~.mdc-checkbox__ripple,
+.mat-mdc-checkbox .mdc-checkbox:hover .mdc-checkbox__native-control:not([disabled]):not([active])~.mdc-checkbox__ripple {
+  opacity: var(--alpha-1);
+  background: var(--mdc-checkbox-selected-hover-icon-ripple);
+}
+
+.sw-theme .mat-mdc-checkbox .mdc-checkbox__ripple {
+  background: var(--mdc-checkbox-selected-icon-color);
+}
+
+.mdc-checkbox .mdc-checkbox__native-control:not([disabled]):not([active]):focus~.mdc-checkbox__ripple {
+  opacity: var(--alpha-1);
+  background: var(--mdc-checkbox-selected-focus-icon-ripple);
+}
+
+.required {
+  position: relative;
+
+  &::before {
+    content: "*";
+    position: absolute;
+    z-index: 1;
+    transform: translate(360%, -10%);
+    font-size: var(--required-size);
+    font-family: var(--required-font);
+    font-weight: var(--required-weight);
+    color: var(--required-color);
+  }
+  &.mat-mdc-checkbox-disabled {
+    &::before {
+      color: var(--required-disabled);
+    }
+  }
+}
+
+.mat-mdc-checkbox {
+  &:not(.mat-mdc-checkbox-checked) .mdc-checkbox__ripple {
+    background: var(--mdc-checkbox-unselected-hover-icon-ripple) !important;
+  }
+}
+
+
+
+@mixin apply-theme($checkbox-config, $color) {
+  $hover-config: map.get($checkbox-config, hover);
+  $focus-config: map.get($checkbox-config, focus);
+  $pressed-config: map.get($checkbox-config, pressed);
+
+  --alpha-1: 1;
+  --required-color: #{map.get($checkbox-config, required-color)};
+  --required-disabled: #{map.get($checkbox-config, required-disabled)};
+  --required-font: #{map.get($checkbox-config, required-font)};
+  --required-size: #{map.get($checkbox-config, required-size)};
+  --required-weight: #{map.get($checkbox-config, required-weight)};
+
+  --mdc-checkbox-selected-checkmark-color: #{map.get($checkbox-config, check-color)};
+  --mdc-checkbox-selected-icon-color: #{map.get($checkbox-config, selected-color)};
+  --mdc-checkbox-unselected-icon-color: #{map.get($checkbox-config, border-color)};
+
+  --mdc-checkbox-selected-hover-icon-color: #{map.get($hover-config, unselected-color)};
+  --mdc-checkbox-unselected-hover-icon-color: #{map.get($checkbox-config, border-color)};
+  --mdc-checkbox-selected-hover-icon-ripple: #{map.get($hover-config, state-hover)};
+  --mdc-checkbox-unselected-hover-icon-ripple: #{map.get($hover-config, unselected-state-hover)};
+
+  --mdc-checkbox-selected-focus-icon-color: #{map.get($focus-config, unselected-color)};
+  --mdc-checkbox-selected-focus-icon-ripple: #{map.get($focus-config, selected-color)};
+  --mdc-checkbox-unselected-focus-icon-color: #{map.get($checkbox-config, border-color)};
+
+  --mdc-checkbox-unselected-pressed-icon-color: #{map.get($pressed-config, unselected-color)};
+  --mdc-checkbox-selected-pressed-icon-color: #{map.get($pressed-config, selected-color)};
+  --mdc-checkbox-selected-pressed-icon-ripple: #{map.get($pressed-config, selected-color)};
+
+  --mdc-checkbox-disabled-selected-checkmark-color: #{map.get($checkbox-config, check-color)};
+  --mdc-checkbox-disabled-unselected-icon-color: #{map.get($checkbox-config, disabled-selected-color)};
+  --mdc-checkbox-disabled-selected-icon-color: #{map.get($checkbox-config, disabled-selected-color)};
+}

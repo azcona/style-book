@@ -1,0 +1,35 @@
+<div class="wrapper">
+
+    <mat-toolbar color="unthemed" class="toolbar">
+      <mat-toolbar-row class="toolbar--justify-opposite">
+        <section class="toolbar__column">
+          <a [routerLink]="'/toolbar'" class="toolbar__logo">
+            <img src="assets/png/logo-sw-blue.png" alt="logo">
+          </a>
+
+          <button mat-button [routerLink]="'/cardbox'">Cards/Box</button>
+          <button mat-button [routerLink]="'/button'">Buttons</button>
+          <button mat-button [routerLink]="'/typography'">Typographies</button>
+          <button mat-button [routerLink]="'/toolbar'">Toolbars</button>
+          <button mat-button [routerLink]="'/checkbox-radio'">Checkbox/Radio</button>
+          <button mat-button [routerLink]="'/elements'">Elements</button>
+          <button mat-button [routerLink]="'/list'">Lists</button>
+          <button mat-button [routerLink]="'/menutree'">Menu/Tree</button>
+          <button mat-button [routerLink]="'/input-select'">Input/Select</button>
+          <button mat-button [routerLink]="'/table-content'">Table</button>
+        </section>
+        <section class="toolbar__column">
+          <mat-form-field appearance="fill">
+            <mat-label>Theme</mat-label>
+            <mat-select (valueChange)="changeTheme($event)">
+              <mat-option value="sw-theme">sw-theme</mat-option>
+              <mat-option value="sw-crazy-theme">sw-crazy-theme</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </section>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  <article class="main">
+    <router-outlet></router-outlet>
+  </article>
+</div>

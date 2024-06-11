@@ -1,0 +1,12 @@
+@use 'styles/themes' as themes;
+@use 'sw-style' as sw-style;
+
+.sw-crazy-theme {
+  $theme: themes.$sw-crazy-theme;
+
+  @include sw-style.theme($theme);
+}
+
+
+
+

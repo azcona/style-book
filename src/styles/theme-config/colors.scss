@@ -1,0 +1,247 @@
+@use "sass:map";
+
+@function primary($tokens) {
+  @return (
+    50: map.get($tokens, primary-50),
+    100: map.get($tokens, primary-100),
+    200: map.get($tokens, primary-200),
+    300: map.get($tokens, primary-300),
+    400: map.get($tokens, primary-400),
+    500: map.get($tokens, primary-500),
+    600: map.get($tokens, primary-600),
+    700: map.get($tokens, primary-700),
+    800: map.get($tokens, primary-800),
+    900: map.get($tokens, primary-900),
+    A100: map.get($tokens, primary-100),
+    A200: map.get($tokens, primary-200),
+    A400: map.get($tokens, primary-400),
+    A700: map.get($tokens, primary-700),
+  contrast: (
+    50: map.get($tokens, on-primary-medium-emphasis),
+    100: map.get($tokens, on-primary-medium-emphasis),
+    200: map.get($tokens, on-primary-medium-emphasis),
+    300: map.get($tokens, on-primary-medium-emphasis),
+    400: map.get($tokens, on-primary-medium-emphasis),
+    500: map.get($tokens, on-primary-medium-emphasis),
+    600: map.get($tokens, on-primary-medium-emphasis),
+    700: map.get($tokens, on-primary-medium-emphasis),
+    800: map.get($tokens, on-primary-medium-emphasis),
+    900: map.get($tokens, on-primary-medium-emphasis),
+    A100: map.get($tokens, on-primary-medium-emphasis),
+    A200: map.get($tokens, on-primary-medium-emphasis),
+    A400: map.get($tokens, on-primary-medium-emphasis),
+    A700: map.get($tokens, on-primary-medium-emphasis)
+  )
+);
+}
+
+@function accent($tokens) {
+  @return (
+    50: map.get($tokens, secondary-50),
+    100: map.get($tokens, secondary-100),
+    200: map.get($tokens, secondary-200),
+    300: map.get($tokens, secondary-300),
+    400: map.get($tokens, secondary-400),
+    500: map.get($tokens, secondary-500),
+    600: map.get($tokens, secondary-600),
+    700: map.get($tokens, secondary-700),
+    800: map.get($tokens, secondary-800),
+    900: map.get($tokens, secondary-900),
+    A100: map.get($tokens, secondary-100),
+    A200: map.get($tokens, secondary-200),
+    A400: map.get($tokens, secondary-400),
+    A700: map.get($tokens, secondary-700),
+    contrast: (
+      50: map.get($tokens, on-secondary-medium-emphasis),
+      100: map.get($tokens, on-secondary-medium-emphasis),
+      200: map.get($tokens, on-secondary-medium-emphasis),
+      300: map.get($tokens, on-secondary-medium-emphasis),
+      400: map.get($tokens, on-secondary-medium-emphasis),
+      500: map.get($tokens, on-secondary-medium-emphasis),
+      600: map.get($tokens, on-secondary-medium-emphasis),
+      700: map.get($tokens, on-secondary-medium-emphasis),
+      800: map.get($tokens, on-secondary-medium-emphasis),
+      900: map.get($tokens, on-secondary-medium-emphasis),
+      A100: map.get($tokens, on-secondary-medium-emphasis),
+      A200: map.get($tokens, on-secondary-medium-emphasis),
+      A400: map.get($tokens, on-secondary-medium-emphasis),
+      A700: map.get($tokens, on-secondary-medium-emphasis),
+    )
+  );
+}
+
+@function neutral($tokens) {
+  @return (
+    50: map.get($tokens, neutral-50),
+    100: map.get($tokens, neutral-100),
+    200: map.get($tokens, neutral-200),
+    300: map.get($tokens, neutral-300),
+    400: map.get($tokens, neutral-400),
+    500: map.get($tokens, neutral-500),
+    600: map.get($tokens, neutral-600),
+    700: var(--sw-surface-inverted, map.get($tokens, neutral-700)),
+    800: map.get($tokens, neutral-800),
+    900: map.get($tokens, neutral-900),
+    A100: map.get($tokens, neutral-100),
+    A200: map.get($tokens, neutral-200),
+    A400: map.get($tokens, neutral-400),
+    A700: var(--sw-surface-inverted, map.get($tokens, neutral-700)),
+    contrast: (
+      50: map.get($tokens, on-surface-medium-emphasis),
+      100: map.get($tokens, on-surface-medium-emphasis),
+      200: map.get($tokens, on-surface-medium-emphasis),
+      300: map.get($tokens, on-surface-medium-emphasis),
+      400: map.get($tokens, on-surface-medium-emphasis),
+      500: map.get($tokens, on-surface-medium-emphasis),
+      600: map.get($tokens, on-surface-medium-emphasis),
+      700: map.get($tokens, on-surface-medium-emphasis),
+      800: map.get($tokens, on-surface-medium-emphasis),
+      900: map.get($tokens, on-surface-medium-emphasis),
+      A100: map.get($tokens, on-surface-medium-emphasis),
+      A200: map.get($tokens, on-surface-medium-emphasis),
+      A400: map.get($tokens, on-surface-medium-emphasis),
+      A700: map.get($tokens, on-surface-medium-emphasis),
+    )
+  );
+}
+
+@function error($tokens) {
+  @return (
+    50: map.get($tokens, error-50),
+    100: map.get($tokens, error-100),
+    200: map.get($tokens, error-200),
+    300: map.get($tokens, error-300),
+    400: map.get($tokens, error-400),
+    500: map.get($tokens, error-500),
+    600: map.get($tokens, error-600),
+    700: map.get($tokens, error-700),
+    800: map.get($tokens, error-800),
+    900: map.get($tokens, error-900),
+    A100: map.get($tokens, error-100),
+    A200: map.get($tokens, error-200),
+    A400: map.get($tokens, error-400),
+    A700: map.get($tokens, error-700),
+    contrast: (
+      50: map.get($tokens, on-surface-medium-emphasis),
+      100: map.get($tokens, on-surface-medium-emphasis),
+      200: map.get($tokens, on-surface-medium-emphasis),
+      300: map.get($tokens, on-surface-medium-emphasis),
+      400: map.get($tokens, on-surface-medium-emphasis),
+      500: map.get($tokens, on-surface-medium-emphasis),
+      600: map.get($tokens, on-surface-medium-emphasis),
+      700: map.get($tokens, on-surface-medium-emphasis),
+      800: map.get($tokens, on-surface-medium-emphasis),
+      900: map.get($tokens, on-surface-medium-emphasis),
+      A100: map.get($tokens, on-surface-medium-emphasis),
+      A200: map.get($tokens, on-surface-medium-emphasis),
+      A400: map.get($tokens, on-surface-medium-emphasis),
+      A700: map.get($tokens, on-surface-medium-emphasis)
+    )
+  );
+}
+
+@function info($tokens) {
+  @return (
+    50: map.get($tokens, info-50),
+    100: map.get($tokens, info-100),
+    200: map.get($tokens, info-200),
+    300: map.get($tokens, info-300),
+    400: map.get($tokens, info-400),
+    500: map.get($tokens, info-500),
+    600: map.get($tokens, info-600),
+    700: map.get($tokens, info-700),
+    800: map.get($tokens, info-800),
+    900: map.get($tokens, info-900),
+    A100: map.get($tokens, info-100),
+    A200: map.get($tokens, info-200),
+    A400: map.get($tokens, info-400),
+    A700: map.get($tokens, info-700),
+    contrast: (
+      50: map.get($tokens, on-surface-medium-emphasis),
+      100: map.get($tokens, on-surface-medium-emphasis),
+      200: map.get($tokens, on-surface-medium-emphasis),
+      300: map.get($tokens, on-surface-medium-emphasis),
+      400: map.get($tokens, on-surface-medium-emphasis),
+      500: map.get($tokens, on-surface-medium-emphasis),
+      600: map.get($tokens, on-surface-medium-emphasis),
+      700: map.get($tokens, on-surface-medium-emphasis),
+      800: map.get($tokens, on-surface-medium-emphasis),
+      900: map.get($tokens, on-surface-medium-emphasis),
+      A100: map.get($tokens, on-surface-medium-emphasis),
+      A200: map.get($tokens, on-surface-medium-emphasis),
+      A400: map.get($tokens, on-surface-medium-emphasis),
+      A700: map.get($tokens, on-surface-medium-emphasis
+      )
+    )
+  );
+}
+
+@function warn($tokens) {
+  @return (
+    50: map.get($tokens, warning-50),
+    100: map.get($tokens, warning-100),
+    200: map.get($tokens, warning-200),
+    300: map.get($tokens, warning-300),
+    400: map.get($tokens, warning-400),
+    500: map.get($tokens, warning-500),
+    600: map.get($tokens, warning-600),
+    700: map.get($tokens, warning-700),
+    800: map.get($tokens, warning-800),
+    900: map.get($tokens, warning-900),
+    A100: map.get($tokens, warning-100),
+    A200: map.get($tokens, warning-200),
+    A400: map.get($tokens, warning-400),
+    A700: map.get($tokens, warning-700),
+    contrast: (
+      50: map.get($tokens, on-surface-medium-emphasis),
+      100: map.get($tokens, on-surface-medium-emphasis),
+      200: map.get($tokens, on-surface-medium-emphasis),
+      300: map.get($tokens, on-surface-medium-emphasis),
+      400: map.get($tokens, on-surface-medium-emphasis),
+      500: map.get($tokens, on-surface-medium-emphasis),
+      600: map.get($tokens, on-surface-medium-emphasis),
+      700: map.get($tokens, on-surface-medium-emphasis),
+      800: map.get($tokens, on-surface-medium-emphasis),
+      900: map.get($tokens, on-surface-medium-emphasis),
+      A100: map.get($tokens, on-surface-medium-emphasis),
+      A200: map.get($tokens, on-surface-medium-emphasis),
+      A400: map.get($tokens, on-surface-medium-emphasis),
+      A700: map.get($tokens, on-surface-medium-emphasis)
+    )
+  );
+}
+
+@function success($tokens) {
+  @return (
+    50: map.get($tokens, success-50),
+    100: map.get($tokens, success-100),
+    200: map.get($tokens, success-200),
+    300: map.get($tokens, success-300),
+    400: map.get($tokens, success-400),
+    500: map.get($tokens, success-500),
+    600: map.get($tokens, success-600),
+    700: map.get($tokens, success-700),
+    800: map.get($tokens, success-800),
+    900: map.get($tokens, success-900),
+    A100: map.get($tokens, success-100),
+    A200: map.get($tokens, success-200),
+    A400: map.get($tokens, success-400),
+    A700: map.get($tokens, success-700),
+    contrast: (
+      50: map.get($tokens, on-surface-medium-emphasis),
+      100: map.get($tokens, on-surface-medium-emphasis),
+      200: map.get($tokens, on-surface-medium-emphasis),
+      300: map.get($tokens, on-surface-medium-emphasis),
+      400: map.get($tokens, on-surface-medium-emphasis),
+      500: map.get($tokens, on-surface-medium-emphasis),
+      600: map.get($tokens, on-surface-medium-emphasis),
+      700: map.get($tokens, on-surface-medium-emphasis),
+      800: map.get($tokens, on-surface-medium-emphasis),
+      900: map.get($tokens, on-surface-medium-emphasis),
+      A100: map.get($tokens, on-surface-medium-emphasis),
+      A200: map.get($tokens, on-surface-medium-emphasis),
+      A400: map.get($tokens, on-surface-medium-emphasis),
+      A700: map.get($tokens, on-surface-medium-emphasis)
+    )
+  );
+}

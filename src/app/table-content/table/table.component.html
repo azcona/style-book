@@ -1,0 +1,105 @@
+<article class="content content--dashed">
+  <h3>Table with Checkbox Selection</h3>
+
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="check">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox class="sw-mat-primary"></mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox class="sw-mat-primary"></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container *ngFor="let column of displayedColumns" >
+      <ng-container *ngIf="column !== 'check' && column !== 'order'" [matColumnDef]="column">
+        <th mat-header-cell *matHeaderCellDef>
+          <h6 class="typography-subtitle-2">
+            {{ column }}
+          </h6>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+      </ng-container>
+    </ng-container>
+
+    <ng-container matColumnDef="order">
+      <th mat-header-cell *matHeaderCellDef class="td--xs"></th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button class="example-icon">
+          <mat-icon>arrow_drop_up</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon">
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"
+        (click)="expandedElement = expandedElement === row ? null : row">
+    </tr>
+  </table>
+</article>
+
+<p class="notes">Note: You can add elevation to tables with box-shadow if you add the class <span class="code">"table--elevation"</span> </p>
+
+
+<article class="content content--dashed">
+  <h3>Table with Expandable Rows</h3>
+
+  <table mat-table [dataSource]="dataSource" class="table--elevation" multiTemplateDataRows>
+
+   <ng-container *ngFor="let column of displayedColumnsTable2" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef>
+        <h6 class="typography-subtitle-2">
+          {{ column }}
+        </h6>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element" class="td--xs"><!--  [attr.colspan]="displayedColumns.length"-->
+        <mat-icon>today</mat-icon>
+        <button mat-icon-button
+                class="example-icon"
+                (click)="expandedElement === element ? expandedElement = null : expandedElement = element">
+          <mat-icon> {{expandedElement === element ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}} </mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+        <div [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <section class="table--expanded-section">
+            <div class="flex flex--start">
+              <mat-form-field>
+                <mat-label>Favorite food</mat-label>
+                <input matInput placeholder="Ex. Pizza" value="Sushi">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Favorite food</mat-label>
+                <input matInput placeholder="Ex. Pizza" value="Food">
+              </mat-form-field>
+            </div>
+            <div class="flex flex--end">
+              <button mat-flat-button>Previous</button>
+              <button mat-flat-button>Action 2</button>
+            </div>
+          </section>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  </table>
+</article>
+

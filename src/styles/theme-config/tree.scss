@@ -1,0 +1,18 @@
+@use "sass:map";
+@use "sass:color";
+
+@function unthemed($tokens) {
+  $padding-x-small: map.get($tokens, spacing-ref-3-x-small)+px;
+  $padding-small: map.get($tokens, spacing-ref-small)+px;
+  $padding-medium: map.get($tokens, spacing-ref-medium)+px;
+  $padding-x-large: map.get($tokens, spacing-ref-x-large)+px;
+  $color: map.get($tokens, on-surface-high-emphasis);
+
+  @return (
+    tree-color: $color,
+    tree-item-pad-x-small: $padding-x-small,
+    tree-item-pad-small: $padding-small,
+    tree-item-pad-medium: $padding-medium,
+    tree-item-pad-x-large: $padding-x-large,
+  );
+}

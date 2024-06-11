@@ -1,0 +1,28 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: style-book-front-ingress-internal
+  namespace: development-services
+  annotations:
+    konghq.com/methods: GET,POST #HEAD,PUT,PATCH,OPTIONS,DELETE,CONNECT,TRACE
+    konghq.com/strip-path: "true"
+    konghq.com/preserve-host: "true"
+
+spec:
+  ingressClassName: kong-internal
+  tls:
+    - hosts:
+        - style-book-front.ua.swfs.cloud
+  rules:
+    - host: style-book-front.ua.swfs.cloud
+      http:
+        paths:
+          - path: /style-book
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: style-book-front
+                port:
+                  number: 8080
+

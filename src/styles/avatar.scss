@@ -1,0 +1,63 @@
+@use "sass:map";
+@use "sass:meta";
+@use 'typography' as typography;
+
+@mixin theme($theme) {
+  $avatar-config: map.get($theme, avatar);
+
+  --avatar-bg-color: #{map.get($avatar-config, bg-color)};
+  --avatar-bg-color-block: #{map.get($avatar-config, bg-color-block)};
+  --avatar-font-color: #{map.get($avatar-config, font-color)};
+  --avatar-font-color-block: #{map.get($avatar-config, font-color-block)};
+  --avatar-font-size: #{map.get($avatar-config, font-size)};
+  --avatar-font-family: #{map.get($avatar-config, font-family)};
+  --avatar-font-weight: #{map.get($avatar-config, font-weight)};
+  --avatar-border-radius: #{map.get($avatar-config, border-radius)}%;
+  --avatar-size: #{map.get($avatar-config, size)};
+  --avatar-opacity: #{map.get($avatar-config, opacity)};
+
+  .avatar-letter,
+  .avatar-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: var(--avatar-border-radius);
+    background-color: var(--avatar-bg-color);
+    font-size: var(--avatar-font-size);
+    font-family: var(--avatar-font-family);
+    font-weight: var(--avatar-font-weight);
+    color: var(--avatar-font-color);
+  }
+
+  .avatar-letter {
+    &--block {
+      background-color: var(--avatar-bg-color-block);
+      color: var(--avatar-font-color-block);
+      pointer-events: none;
+    }
+  }
+
+  .avatar-photo {
+    background-color: var(--avatar-bg-color-block);
+    background-size: cover;
+    &--block {
+      filter: brightness(70%);
+      pointer-events: none;
+    }
+    &--disabled {
+      opacity: var(--avatar-opacity);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+

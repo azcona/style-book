@@ -1,0 +1,17 @@
+@use "sass:map";
+
+@function unthemed($tokens) {
+  $font-icon-size: map.get($tokens, font-size-0)+px;
+  $gap-text: map.get($tokens, spacing-ref-3-x-small)+px;
+  $gap-but-icon: map.get($tokens, spacing-ref-medium)+px;
+  $high-emphasis: map.get($tokens, on-surface-high-emphasis);
+
+  @return (
+    font-icon-size: $font-icon-size,
+    gap: $gap-text,
+    gap-but-icon: $gap-but-icon,
+    font-icon-color: $high-emphasis,
+    title-color: $high-emphasis,
+  );
+}
+

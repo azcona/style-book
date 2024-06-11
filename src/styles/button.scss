@@ -1,0 +1,259 @@
+@use "sass:map";
+@use "sass:meta";
+@use '@angular/material' as mat;
+@use 'material-theme' as material-theme;
+@use 'typography' as typography;
+
+@mixin theme($theme) {
+
+  $theme-colors: material-theme.theme($theme);
+  @include mat.all-component-themes(map.get($theme-colors, default-theme));
+
+  .mat-mdc-button-base {
+    @include typography.button($theme);
+  }
+
+  @include themed-buttons($theme, unthemed);
+  @include themed-buttons($theme, primary);
+  @include themed-buttons($theme, primary-inv);
+  @include themed-buttons($theme, accent);
+  @include themed-buttons($theme, accent-inv);
+  @include themed-buttons($theme, warn);
+  @include themed-buttons($theme, success);
+  @include themed-buttons($theme, info);
+  @include themed-buttons($theme, error);
+  @include themed-buttons($theme, error-inv);
+}
+
+@mixin apply-theme($button-config) {
+  $button-type: map.get($button-config, type);
+  $button-theme: map.get($button-config, theme);
+  $color: map.get($button-config, color);
+  $background-color: map.get($button-config, background-color);
+  $border-radius: map.get($button-config, border-radius);
+  $border-color: map.get($button-config, border-color);
+  $button-padding: map.get($button-config, button-padding);
+
+  --button-mini-icon-size: #{map.get($button-config, size-mini-icon)};
+  --button-mini-icon-padding: #{map.get($button-config, padding-mini-icon)};
+  --button-icon-margin: #{map.get($button-config, icon-margin)};
+  --button-icon-size: 1.5rem;
+  --toggle-background-button: #{map.get($button-config, toggle-background)};
+  --ext-fab-padding: #{map.get($button-config, button-padding)};
+
+  --button-icon-text-gap: #{map.get($button-config, icon-text-gap)};
+  --padding-icon-text: #{map.get($button-config, padding-icon-text)};
+  --padding-icon-text-icon: #{map.get($button-config, padding-icon-text-icon)};
+  --padding-text-icon: #{map.get($button-config, padding-text-icon)};
+
+  color: $color;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  border-color: $border-color;
+  padding: $button-padding;
+
+  @if map.has-key($button-config, elevation) {
+    $elevation: map.get($button-config, elevation);
+    $elevation-color: map.get($button-config, elevation-color);
+    $elevation-opacity: map.get($button-config, elevation-opacity);
+    @include mat.elevation(
+        $elevation,
+        $elevation-color,
+        $elevation-opacity
+    );
+  }
+
+  $hover-config: map.get($button-config, hover);
+  &:hover {
+    $hover-color: if(map.has-key($hover-config, color), map.get($hover-config, color), $color);
+    $hover-background-color: if(map.has-key($hover-config, background-color), map.get($hover-config, background-color), $background-color);
+    $hover-border-radius: if(map.has-key($hover-config, border-radius), map.get($hover-config, border-radius), $border-radius);
+    $hover-border-color: if(map.has-key($hover-config, border-color), map.get($hover-config, border-color), $border-color);
+    $hover-overlay-color: map.get($hover-config, overlay-color);
+    $hover-overlay-opacity: map.get($hover-config, overlay-opacity);
+
+    color: $hover-color;
+    background-color: $hover-background-color;
+    border-radius: $hover-border-radius;
+    border-color: $hover-border-color;
+
+    .mat-mdc-button-persistent-ripple::before {
+      background-color: $hover-overlay-color;
+      opacity: $hover-overlay-opacity;
+    }
+
+    @if map.has-key($hover-config, elevation) {
+      $hover-elevation: map.get($hover-config, elevation);
+      $hover-elevation-color: map.get($hover-config, elevation-color);
+      $hover-elevation-opacity: map.get($hover-config, elevation-opacity);
+      @include mat.elevation(
+          $hover-elevation,
+          $hover-elevation-color,
+          $hover-elevation-opacity
+      );
+    }
+  }
+
+  $focus-config: map.get($button-config, focus);
+  &:focus {
+    $focus-color: if(map.has-key($focus-config, color), map.get($focus-config, color), $color);
+    $focus-background-color: if(map.has-key($focus-config, background-color), map.get($focus-config, background-color), $background-color);
+    $focus-border-radius: if(map.has-key($focus-config, border-radius), map.get($focus-config, border-radius), $border-radius);
+    $focus-border-color: if(map.has-key($focus-config, border-color), map.get($focus-config, border-color), $border-color);
+    $focus-overlay-color: map.get($focus-config, overlay-color);
+    $focus-overlay-opacity: map.get($focus-config, overlay-opacity);
+
+
+    color: $focus-color;
+    background-color: $focus-background-color;
+    border-radius: $focus-border-radius;
+    border-color: $focus-border-color;
+
+    .mat-mdc-button-persistent-ripple::before {
+      transition: background-color 0.5s ease-in-out;
+      background-color: transparent;
+      opacity: $focus-overlay-opacity;
+    }
+
+    @if map.has-key($focus-config, elevation) {
+      $focus-elevation: map.get($focus-config, elevation);
+      $focus-elevation-color: map.get($focus-config, elevation-color);
+      $focus-elevation-opacity: map.get($focus-config, elevation-opacity);
+      @include mat.elevation(
+          $focus-elevation,
+          $focus-elevation-color,
+          $focus-elevation-opacity
+      );
+    }
+  }
+
+  $disabled-config: map.get($button-config, disabled);
+  &[disabled] {
+    $disabled-color: if(map.has-key($disabled-config, color), map.get($disabled-config, color), $color);
+    $disabled-background-color: if(map.has-key($disabled-config, background-color), map.get($disabled-config, background-color), $background-color);
+    $disabled-border-radius: if(map.has-key($disabled-config, border-radius), map.get($disabled-config, border-radius), $border-radius);
+    $disabled-border-color: if(map.has-key($disabled-config, border-color), map.get($disabled-config, border-color), $border-color);
+    $disabled-overlay-color: map.get($disabled-config, overlay-color);
+    $disabled-overlay-opacity: map.get($disabled-config, overlay-opacity);
+
+
+    color: $disabled-color;
+    background-color: $disabled-background-color;
+    border-radius: $disabled-border-radius;
+    border-color: $disabled-border-color;
+
+    .mat-mdc-button-persistent-ripple::before {
+      background-color: $disabled-overlay-color;
+      opacity: $disabled-overlay-opacity;
+    }
+
+    @include mat.elevation(0, null, 1);
+  }
+
+  $pressed-config: map.get($button-config, pressed);
+  &:active {
+    --mat-mdc-button-persistent-ripple-color: #{map.get($pressed-config, overlay-color)};
+    --mat-mdc-button-ripple-color: #{map.get($pressed-config, overlay-color)};
+  }
+}
+
+@mixin themed-buttons($theme, $color) {
+  /* label */
+  .mdc-button__label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Basic button */
+  .mat-mdc-button.mat-#{$color} {
+    @include apply-theme(map.get($theme, button-basic-#{$color}));
+  }
+
+  /* Raised button */
+  .mat-mdc-raised-button.mat-#{$color} {
+    @include apply-theme(map.get($theme, button-raised-#{$color}));
+  }
+
+  /* Stroked/Outlined button */
+  .mat-mdc-outlined-button.mat-#{$color} {
+    @include apply-theme(map.get($theme, button-stroked-#{$color}));
+  }
+
+  /* Flat/Unelevated button */
+  .mat-mdc-unelevated-button.mat-#{$color} {
+    @include apply-theme(map.get($theme, button-flat-#{$color}));
+  }
+
+  /* Icon button */
+  .mat-mdc-icon-button.mat-#{$color} {
+    @include apply-theme(map.get($theme, button-icon-#{$color}));
+  }
+
+  /* Mini-Icon button */
+  .mat-mdc-icon-button--mini.mat-#{$color} {
+    @include apply-theme(map.get($theme, button-icon-#{$color}));
+    height: var(--button-mini-icon-size);
+    width:  var(--button-mini-icon-size);
+    padding: var(--button-mini-icon-padding);
+    background-color: transparent;
+  }
+
+  /* Fab button */
+  .mat-mdc-fab.mat-#{$color} {
+    @include apply-theme(map.get($theme, button-fab-#{$color}));
+  }
+
+  /* Mini-fab button */
+  .mat-mdc-mini-fab.mat-#{$color} {
+    @include apply-theme(map.get($theme, button-mini-fab-#{$color}));
+  }
+
+  /* Toggle Background */
+  .mdc-icon-button.toggle-bg.mat-#{$color} {
+    background: var(--toggle-background-button);
+  }
+
+  .mdc-button .mat-icon {
+    margin-left: 0;
+    margin-right: var(--button-icon-margin);
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    font-size: var(--button-icon-size);
+    height: var(--button-icon-size);
+    width: var(--button-icon-size);
+    min-width: var(--button-icon-size);
+  }
+
+  .disposition {
+    display: flex;
+    align-items: center;
+    gap: var(--button-icon-text-gap);
+    & span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    & .mat-icon {
+      min-width: var(--button-icon-size);
+      margin-right: 0;
+    }
+    &--icon-text {
+      padding: var(--padding-icon-text);
+    }
+    &--icon-text-icon {
+      padding: var(--padding-icon-text-icon);
+    }
+    &--text-icon {
+      padding: var(--padding-text-icon);
+    }
+  }
+  .mat-mdc-button:has(.disposition),
+  .mdc-button--raised:has(.disposition),
+  .mdc-button--outlined:has(.disposition) {
+    padding: 0;
+  }
+}
+
+

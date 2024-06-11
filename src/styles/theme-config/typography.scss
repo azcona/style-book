@@ -1,0 +1,87 @@
+@use "sass:map";
+
+@function headline-1($tokens) {
+  @return typography-config($tokens, h1);
+}
+
+@function headline-2($tokens) {
+  @return typography-config($tokens, h2);
+}
+
+@function headline-3($tokens) {
+  @return typography-config($tokens, h3);
+}
+
+@function headline-4($tokens) {
+  @return typography-config($tokens, h4);
+}
+
+@function headline-5($tokens) {
+  @return typography-config($tokens, h5);
+}
+
+@function headline-6($tokens) {
+  @return typography-config($tokens, h6);
+}
+
+@function subtitle-1($tokens) {
+  @return typography-config($tokens, subtitle-1);
+}
+
+@function subtitle-2($tokens) {
+  @return typography-config($tokens, subtitle-2);
+}
+
+@function body-1($tokens) {
+  @return typography-config($tokens, body-1);
+}
+
+@function body-2($tokens) {
+  @return typography-config($tokens, body-2);
+}
+
+@function button($tokens) {
+  @return typography-config($tokens, button);
+}
+
+@function caption($tokens) {
+  @return typography-config($tokens, caption);
+}
+
+@function overline($tokens) {
+  @return typography-config($tokens, overline);
+}
+
+@function typography-config($tokens, $type) {
+  $base-size: 16;
+  $factor: calc(1.88rem + 0.3vw);
+
+  $font-size-xs: map.get($tokens, $type+-xs-font-size) / $base-size + rem;
+  $font-size-l: map.get($tokens, $type+-l-font-size) / $base-size + rem;
+  $font-size: clamp($font-size-xs, $factor, $font-size-l);
+
+  $line-height-xs: map.get($tokens, $type+-xs-line-height) / $base-size + rem;
+  $line-height-l: map.get($tokens, $type+-l-line-height) / $base-size + rem;
+  $line-height: clamp($line-height-xs, $factor, $line-height-l);
+
+  $font-family: map.get($tokens, $type+-l-font-family);
+  $font-weight: map.get($tokens, $type+-l-font-weight);
+  $letter-spacing: map.get($tokens, $type+-l-letter-spacing);
+  $paragraph-spacing: map.get($tokens, $type+-l-paragraph-spacing) / $base-size + rem;
+  $paragraph-indent: map.get($tokens, $type+-l-paragraph-indent);
+  $text-transform: map.get($tokens, $type+-l-text-case);
+  $text-decoration: map.get($tokens, $type+-l-text-decoration);
+
+  @return (
+    font-family: $font-family,
+    font-weight: $font-weight,
+    line-height: $line-height,
+    font-size: $font-size,
+    letter-spacing: $letter-spacing,
+    paragraph-spacing: $paragraph-spacing,
+    paragraph-indent: $paragraph-indent,
+    text-transform: $text-transform,
+    text-decoration: $text-decoration,
+  );
+}
+

@@ -1,0 +1,48 @@
+@use "sass:map";
+@use "sass:meta";
+
+
+@mixin theme($theme) {
+  $header-config: map.get($theme, header);
+
+  --header-text-font-icon-size: #{map.get($header-config, font-icon-size)};
+  --header-text-gap: #{map.get($header-config, gap)};
+  --header-text-gap-but-icon: #{map.get($header-config, gap-but-icon)};
+  --header-text-font-icon-color: #{map.get($header-config, font-icon-color)};
+  --header-text-title-color: #{map.get($header-config, title-color)};
+
+  .header-text {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: var(--header-text-gap);
+    align-self: flex-start;
+    & * {
+      margin: 0;
+      white-space: normal;
+    }
+    &__title {
+      white-space: nowrap;
+      color: var(--header-text-title-color);
+    }
+    &__icon {
+      font-size: var(--header-text-font-icon-size);
+      color:  var(--header-text-font-icon-color);
+      width: auto;
+      height: auto;
+    }
+    &__but-icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: var(--header-text-gap-but-icon);
+    }
+  }
+
+  .header-image {
+    height: 100%;
+    & img {
+      height: 100%;
+    }
+  }
+}

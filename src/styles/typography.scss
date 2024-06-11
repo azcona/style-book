@@ -1,0 +1,111 @@
+@use '@angular/material' as mat;
+@use "sass:map";
+
+@mixin theme($theme) {
+  .typography-headline-1 {
+    @include headline-1($theme)
+  }
+  .typography-headline-2 {
+    @include headline-2($theme)
+  }
+  .typography-headline-3 {
+    @include headline-3($theme)
+  }
+  .typography-headline-4 {
+    @include headline-4($theme)
+  }
+  .typography-headline-5 {
+    @include headline-5($theme)
+  }
+  .typography-headline-6 {
+    @include headline-6($theme)
+  }
+  .typography-subtitle-1 {
+    @include subtitle-1($theme)
+  }
+  .typography-subtitle-2 {
+    @include subtitle-2($theme)
+  }
+  .typography-body-1 {
+    @include body-1($theme)
+  }
+  .typography-body-2 {
+    @include body-2($theme)
+  }
+  .typography-button {
+    @include button($theme)
+  }
+  .typography-caption {
+    @include caption($theme)
+  }
+  .typography-overline {
+    @include overline($theme)
+  }
+}
+
+@mixin headline-1($theme) {
+  @include typography($theme, headline-1)
+}
+
+@mixin headline-2($theme) {
+  @include typography($theme, headline-2)
+}
+
+@mixin headline-3($theme) {
+  @include typography($theme, headline-3)
+}
+
+@mixin headline-4($theme) {
+  @include typography($theme, headline-4)
+}
+
+@mixin headline-5($theme) {
+  @include typography($theme, headline-5)
+}
+
+@mixin headline-6($theme) {
+  @include typography($theme, headline-6)
+}
+
+@mixin subtitle-1($theme) {
+  @include typography($theme, subtitle-1)
+}
+
+@mixin subtitle-2($theme) {
+  @include typography($theme, subtitle-2)
+}
+
+@mixin body-1($theme) {
+  @include typography($theme, body-1)
+}
+
+@mixin body-2($theme) {
+  @include typography($theme, body-2)
+}
+
+@mixin button($theme) {
+  @include typography($theme, button)
+}
+
+@mixin caption($theme) {
+  @include typography($theme, caption)
+}
+
+@mixin overline($theme) {
+  @include typography($theme, overline)
+}
+
+@mixin typography($theme, $type) {
+  $typography-config: map.get($theme, typography-+$type);
+
+
+  font-family: map.get($typography-config, font-family);
+  font-weight: map.get($typography-config, font-weight);
+  line-height: map.get($typography-config, line-height);
+  font-size: map.get($typography-config, font-size);
+  letter-spacing: map.get($typography-config, letter-spacing);
+  paragraph-spacing: map.get($typography-config, paragraph-spacing);
+  paragraph-indent: map.get($typography-config, paragraph-indent);
+  text-transform: map.get($typography-config, text-transform);
+  text-decoration: map.get($typography-config, text-decoration);
+}

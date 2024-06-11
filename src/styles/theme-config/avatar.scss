@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "sass:color";
+
+@function unthemed($tokens) {
+  $main-color: map.get($tokens, primary);
+  $high-emphasis: map.get($tokens, on-primary-high-emphasis);
+  $surface-disabled: map.get($tokens, on-surface-disabled);
+  $font-size: map.get($tokens, subtitle-2-font-size)+px;
+  $font-family: map.get($tokens, subtitle-2-font-family);
+  $font-weight: map.get($tokens, subtitle-2-font-weight);
+  $border-radius: map.get($tokens, border-radius-ref-circle);
+  $size: 40px;
+  $alpha: 0.5;
+
+  @return (
+    bg-color: $main-color,
+    bg-color-block: $surface-disabled,
+    font-color: $high-emphasis,
+    font-color-block: $surface-disabled,
+    font-size: $font-size,
+    font-family: $font-family,
+    font-weight: $font-weight,
+    border-radius: $border-radius,
+    size: $size,
+    opacity: $alpha
+  );
+}

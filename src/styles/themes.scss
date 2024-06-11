@@ -1,0 +1,10 @@
+@use 'tokens/build/scss/map.sw-theme' as sw-theme;
+@use 'tokens/build/scss/map.sw-crazy-theme' as sw-crazy-theme;
+@use 'theme-config/theme' as theme;
+
+$sw-theme: theme.create(sw-theme.$tokens);
+$sw-crazy-theme: theme.create(sw-crazy-theme.$tokens);
+
+
+
+

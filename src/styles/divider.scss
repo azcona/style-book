@@ -1,0 +1,47 @@
+@use "sass:map";
+@use "sass:meta";
+
+@mixin theme($theme) {
+  $divider-config: map.get($theme, divider);
+
+  --divider-color-default: #dddddd;
+  --divider-border: 1px solid var(--divider-color-default);
+  --divider-size: 100%;
+  --divider-color: #{map.get($divider-config, divider-color)};
+  --divider-margin: #{map.get($divider-config, divider-margin)};
+  --divider-padding: #{map.get($divider-config, divider-padding)};
+
+  .divider,
+  .mat-divider {
+    display: block;
+    border-top: var(--divider-border);
+    border-color: var(--divider-color);
+    padding: 0;
+
+    &--horizontal {
+      width: var(--divider-size);
+      height: 0;
+      margin: var(--divider-margin) auto;
+
+      &-padding {
+        width: calc(var(--divider-size) - (2 * var(--divider-padding)));
+      }
+    }
+
+    &--vertical {
+      height: var(--divider-size);
+      border-left: var(--divider-border);
+      width: 0;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+@use "sass:map";
+@use "sass:meta";
+
+
+.sw-theme .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full {
+  background: var(--select-box-checkbox-bg);
+}
+
+.sw-theme .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after {
+  color: var(--select-box-check-color);
+}
+
+.sw-theme .mdc-menu-surface {
+  box-shadow: var(--select-box-shadow);
+  background-color: var(--select-box-bg);
+}
+
+.sw-theme .mat-mdc-select-arrow,
+.sw-theme .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+  color: var(--select-arrow-color-off);
+}
+
+.sw-theme .mat-mdc-form-field .mat-mdc-select.mat-mdc-select-disabled .mat-mdc-select-arrow,
+.sw-theme .mdc-text-field--disabled .mdc-floating-label {
+  color: var(--select-color-disabled);
+}
+
+.sw-theme .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+  -moz-transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  transform:rotate(180deg);
+}
+
+.mat-mdc-option.mdc-list-item .mat-pseudo-checkbox-minimal {
+  margin-left: var(--select-box-option-padding);
+}
+
+.mat-mdc-option.mdc-list-item .mat-pseudo-checkbox {
+   width: var(--select-box-check-size);
+   height: var(--select-box-check-size);
+ }
+
+@mixin theme($theme) {
+
+  $select-config: map.get($theme, select);
+
+  --select-arrow-color-off: #{map.get($select-config, arrow-off)};
+  --select-color-disabled: #{map.get($select-config, color-disabled)};
+  --select-box-check-color: #{map.get($select-config, check-color)};
+  --select-box-option-padding: #{map.get($select-config, option-padding)};
+  --select-box-bg: #{map.get($select-config, box-bg)};
+  --select-box-radius: #{map.get($select-config, box-radius)};
+  --select-box-shadow:  #{map.get($select-config, box-shadow)};
+  --select-box-checkbox-bg: #{map.get($select-config, checkbox-bg)};
+  --select-box-check-size: #{map.get($select-config, check-size)};
+
+  --mat-select-trigger-text-font: #{map.get($select-config, select-font)};
+  --mat-option-label-text-font: #{map.get($select-config, label-font)};
+  --mat-menu-item-label-text-font: #{map.get($select-config, menu-item-font)};
+
+
+  .mat-mdc-option {
+    padding-left: var(--select-box-option-padding);
+    padding-right: var(--select-box-option-padding);
+  }
+
+}
+
+
+
+
+
+
+
+
+
+

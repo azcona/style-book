@@ -1,0 +1,13 @@
+@use "sass:map";
+
+@function config($tokens) {
+
+  @return (
+    neutral-25: map.get($tokens, neutral-25),
+    neutral-50: map.get($tokens, neutral-50),
+    neutral-100: map.get($tokens, neutral-100),
+    neutral-200: map.get($tokens, neutral-200),
+    primary-700: map.get($tokens, primary-variant2),
+    surface-inverted: map.get($tokens, surface-inverted),
+  );
+}

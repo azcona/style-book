@@ -1,0 +1,27 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: style-book-front-ingress-public-legacy
+  namespace: development-services
+  annotations:
+    konghq.com/methods: GET,POST #HEAD,PUT,PATCH,OPTIONS,DELETE,CONNECT,TRACE
+    konghq.com/strip-path: "false"
+    konghq.com/preserve-host: "true"
+
+spec:
+  ingressClassName: kong-public
+  tls:
+    - hosts:
+        - demo.test.oswfs.com
+  rules:
+    - host: demo.test.oswfs.com
+      http:
+        paths:
+          - path: '/style-book/(.+\.(jpg|svg|jpeg|gif|png|ico|css|ttf|woff|woff2))'
+            pathType: Prefix
+            backend:
+              service:
+                name: style-book-front
+                port:
+                  number: 8080

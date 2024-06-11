@@ -1,0 +1,27 @@
+@use "sass:map";
+
+$default-card-elevation: 1;
+$default-card-elevation-color: #000000;
+$default-card-elevation-opacity: 0.14;
+
+@function unthemed($tokens) {
+  @return (
+    on-surface: map.get($tokens, on-surface-medium-emphasis),
+    surface: var(--sw-surface, map.get($tokens, surface)),
+    header-padding: map.get($tokens, spacing-sys-header-padding)+px,
+    content-padding: map.get($tokens, spacing-sys-text-padding)+px,
+    actions-padding: map.get($tokens, spacing-sys-buttons-group)+px map.get($tokens, spacing-sys-text-padding)+px,
+
+    elevation: $default-card-elevation,
+    elevation-color: $default-card-elevation-color,
+    elevation-opacity: $default-card-elevation-opacity,
+    border-radius: map.get($tokens, border-radius-sys-cards)+px,
+
+    elevation-hover: $default-card-elevation,
+    elevation-color-hover: $default-card-elevation-color,
+    elevation-opacity-hover: $default-card-elevation-opacity,
+
+    on-surface-high-emphasis: map.get($tokens, on-surface-high-emphasis),
+    on-surface-medium-emphasis: map.get($tokens, on-surface-medium-emphasis),
+  );
+}

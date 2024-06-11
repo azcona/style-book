@@ -1,0 +1,387 @@
+@use "sass:map";
+
+$default-overlay-opacity: 0.8;
+
+@function unthemed($tokens) {
+  $spacing-ref-2-x-small: map.get($tokens, spacing-ref-2-x-small)+px; /*16px*/
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px; /*12px*/
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px; /*8px*/
+  @return (
+    type: stroked,
+    theme: unthemed,
+    color: map.get($tokens, on-surface-high-emphasis),
+    background-color: var(--sw-surface, map.get($tokens, surface)),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    border-color: map.get($tokens, on-surface-medium-emphasis),
+    icon-text-gap: map.get($tokens, spacing-ref-2-x-small)+px,
+    icon-margin: map.get($tokens, spacing-ref-2-x-small)+px,
+    padding-icon-text-icon: $spacing-ref-2-x-small $spacing-ref-medium,
+    padding-icon-text: $spacing-ref-2-x-small $spacing-ref-medium $spacing-ref-2-x-small $spacing-ref-small,
+    padding-text-icon: $spacing-ref-2-x-small $spacing-ref-small $spacing-ref-2-x-small $spacing-ref-medium,
+    button-padding: $spacing-ref-2-x-small $spacing-ref-medium,
+    hover: (
+      overlay-color: map.get($tokens, states-black-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-black-overlay-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface)),
+      border-color: map.get($tokens, on-surface-disabled),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-black-overlay-pressed),
+    )
+  );
+}
+
+@function primary($tokens) {
+  $spacing-ref-2-x-small: map.get($tokens, spacing-ref-2-x-small)+px; /*16px*/
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px; /*12px*/
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px; /*8px*/
+  @return (
+    (
+      type: stroked,
+      theme: primary,
+      color: map.get($tokens, primary-variant2),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+      border-color: map.get($tokens, primary-variant2),
+      icon-text-gap: map.get($tokens, spacing-ref-2-x-small)+px,
+      icon-margin: map.get($tokens, spacing-ref-2-x-small)+px,
+      padding-icon-text-icon: $spacing-ref-2-x-small $spacing-ref-medium,
+      padding-icon-text: $spacing-ref-2-x-small $spacing-ref-medium $spacing-ref-2-x-small $spacing-ref-small,
+      padding-text-icon: $spacing-ref-2-x-small $spacing-ref-small $spacing-ref-2-x-small $spacing-ref-medium,
+      button-padding: $spacing-ref-2-x-small $spacing-ref-medium,
+      hover: (
+        overlay-color: map.get($tokens, states-primary-overlay-hover),
+        overlay-opacity: $default-overlay-opacity
+      ),
+      focus: (
+        overlay-color: map.get($tokens, states-primary-overlay-focused),
+        overlay-opacity: $default-overlay-opacity
+      ),
+      disabled: (
+        color: map.get($tokens, on-surface-disabled),
+        background-color: var(--sw-surface, map.get($tokens, surface)),
+        overlay-color: var(--sw-surface, map.get($tokens, surface)),
+        border-color: map.get($tokens, on-surface-disabled),
+        overlay-opacity: $default-overlay-opacity
+      ),
+      pressed: (
+        overlay-color: map.get($tokens, states-primary-overlay-pressed),
+      )
+    )
+  );
+}
+
+@function accent($tokens) {
+  $spacing-ref-2-x-small: map.get($tokens, spacing-ref-2-x-small)+px; /*16px*/
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px; /*12px*/
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px; /*8px*/
+  @return (
+    type: stroked,
+    theme: accent,
+    color: map.get($tokens, secondary),
+    background-color: var(--sw-surface, map.get($tokens, surface)),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    border-color: map.get($tokens, secondary),
+    icon-text-gap: map.get($tokens, spacing-ref-2-x-small)+px,
+    icon-margin: map.get($tokens, spacing-ref-2-x-small)+px,
+    padding-icon-text-icon: $spacing-ref-2-x-small $spacing-ref-medium,
+    padding-icon-text: $spacing-ref-2-x-small $spacing-ref-medium $spacing-ref-2-x-small $spacing-ref-small,
+    padding-text-icon: $spacing-ref-2-x-small $spacing-ref-small $spacing-ref-2-x-small $spacing-ref-medium,
+    button-padding: $spacing-ref-2-x-small $spacing-ref-medium,
+    hover: (
+      overlay-color: map.get($tokens, states-secondary-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-secondary-overlay-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface)),
+      border-color: map.get($tokens, on-surface-disabled),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-secondary-overlay-pressed),
+    )
+  );
+}
+
+@function success($tokens) {
+  $spacing-ref-2-x-small: map.get($tokens, spacing-ref-2-x-small)+px; /*16px*/
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px; /*12px*/
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px; /*8px*/
+  @return (
+    type: stroked,
+    theme: success,
+    color: map.get($tokens, success-700),
+    background-color: var(--sw-surface, map.get($tokens, surface)),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    border-color: map.get($tokens, success-700),
+    icon-text-gap: map.get($tokens, spacing-ref-2-x-small)+px,
+    icon-margin: map.get($tokens, spacing-ref-2-x-small)+px,
+    padding-icon-text-icon: $spacing-ref-2-x-small $spacing-ref-medium,
+    padding-icon-text: $spacing-ref-2-x-small $spacing-ref-medium $spacing-ref-2-x-small $spacing-ref-small,
+    padding-text-icon: $spacing-ref-2-x-small $spacing-ref-small $spacing-ref-2-x-small $spacing-ref-medium,
+    button-padding: $spacing-ref-2-x-small $spacing-ref-medium,
+    hover: (
+      overlay-color: map.get($tokens, states-success-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-success-overlay-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface)),
+      border-color: map.get($tokens, on-surface-disabled),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-success-overlay-pressed),
+    )
+  );
+}
+
+@function info($tokens) {
+  $spacing-ref-2-x-small: map.get($tokens, spacing-ref-2-x-small)+px; /*16px*/
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px; /*12px*/
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px; /*8px*/
+  @return (
+    type: stroked,
+    theme: info,
+    color: map.get($tokens, info-700),
+    background-color: var(--sw-surface, map.get($tokens, surface)),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    border-color: map.get($tokens, info-700),
+    icon-text-gap: map.get($tokens, spacing-ref-2-x-small)+px,
+    icon-margin: map.get($tokens, spacing-ref-2-x-small)+px,
+    padding-icon-text-icon: $spacing-ref-2-x-small $spacing-ref-medium,
+    padding-icon-text: $spacing-ref-2-x-small $spacing-ref-medium $spacing-ref-2-x-small $spacing-ref-small,
+    padding-text-icon: $spacing-ref-2-x-small $spacing-ref-small $spacing-ref-2-x-small $spacing-ref-medium,
+    button-padding: $spacing-ref-2-x-small $spacing-ref-medium,
+    hover: (
+      overlay-color: map.get($tokens, states-info-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-info-overlay-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface)),
+      border-color: map.get($tokens, on-surface-disabled),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-info-overlay-pressed),
+    )
+  );
+}
+
+@function warn($tokens) {
+  $spacing-ref-2-x-small: map.get($tokens, spacing-ref-2-x-small)+px; /*16px*/
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px; /*12px*/
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px; /*8px*/
+  @return (
+    type: stroked,
+    theme: warn,
+    color: map.get($tokens, warning-700),
+    background-color: var(--sw-surface, map.get($tokens, surface)),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    border-color: map.get($tokens, warning-700),
+    icon-text-gap: map.get($tokens, spacing-ref-2-x-small)+px,
+    icon-margin: map.get($tokens, spacing-ref-2-x-small)+px,
+    padding-icon-text-icon: $spacing-ref-2-x-small $spacing-ref-medium,
+    padding-icon-text: $spacing-ref-2-x-small $spacing-ref-medium $spacing-ref-2-x-small $spacing-ref-small,
+    padding-text-icon: $spacing-ref-2-x-small $spacing-ref-small $spacing-ref-2-x-small $spacing-ref-medium,
+    button-padding: $spacing-ref-2-x-small $spacing-ref-medium,
+    hover: (
+      overlay-color: map.get($tokens, states-warn-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-warn-overlay-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface)),
+      border-color: map.get($tokens, on-surface-disabled),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-warn-overlay-pressed),
+    )
+  );
+}
+
+@function error($tokens) {
+  $spacing-ref-2-x-small: map.get($tokens, spacing-ref-2-x-small)+px; /*16px*/
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px; /*12px*/
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px; /*8px*/
+  @return (
+    type: stroked,
+    theme: error,
+    color: map.get($tokens, error),
+    background-color: var(--sw-surface, map.get($tokens, surface)),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    border-color: map.get($tokens, error),
+    icon-text-gap: map.get($tokens, spacing-ref-2-x-small)+px,
+    icon-margin: map.get($tokens, spacing-ref-2-x-small)+px,
+    padding-icon-text-icon: $spacing-ref-2-x-small $spacing-ref-medium,
+    padding-icon-text: $spacing-ref-2-x-small $spacing-ref-medium $spacing-ref-2-x-small $spacing-ref-small,
+    padding-text-icon: $spacing-ref-2-x-small $spacing-ref-small $spacing-ref-2-x-small $spacing-ref-medium,
+    button-padding: $spacing-ref-2-x-small $spacing-ref-medium,
+    hover: (
+      overlay-color: map.get($tokens, states-error-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-error-overlay-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface)),
+      border-color: map.get($tokens, on-surface-disabled),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-error-overlay-pressed),
+    )
+  );
+}
+
+@function primary-inv($tokens) {
+  $spacing-ref-2-x-small: map.get($tokens, spacing-ref-2-x-small)+px; /*16px*/
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px; /*12px*/
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px; /*8px*/
+  @return (
+    type: stroked,
+    theme: primary-inv,
+    color: map.get($tokens, primary-inverted),
+    background-color: var(--sw-surface-inverted, map.get($tokens, neutral-700)),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    border-color: map.get($tokens, primary-inverted),
+    icon-text-gap: map.get($tokens, spacing-ref-2-x-small)+px,
+    icon-margin: map.get($tokens, spacing-ref-2-x-small)+px,
+    padding-icon-text-icon: $spacing-ref-2-x-small $spacing-ref-medium,
+    padding-icon-text: $spacing-ref-2-x-small $spacing-ref-medium $spacing-ref-2-x-small $spacing-ref-small,
+    padding-text-icon: $spacing-ref-2-x-small $spacing-ref-small $spacing-ref-2-x-small $spacing-ref-medium,
+    button-padding: $spacing-ref-2-x-small $spacing-ref-medium,
+    hover: (
+      overlay-color: map.get($tokens, states-primary-overlay-inversed-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-primary-overlay-inversed-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface)),
+      border-color: map.get($tokens, on-surface-disabled),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-primary-overlay-inversed-pressed),
+    )
+  );
+}
+
+@function accent-inv($tokens) {
+  $spacing-ref-2-x-small: map.get($tokens, spacing-ref-2-x-small)+px; /*16px*/
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px; /*12px*/
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px; /*8px*/
+  @return (
+    type: stroked,
+    theme: accent-inv,
+    color: map.get($tokens, secondary-inverted),
+    background-color: var(--sw-surface-inverted, map.get($tokens, neutral-700)),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    border-color: map.get($tokens, secondary-inverted),
+    icon-text-gap: map.get($tokens, spacing-ref-2-x-small)+px,
+    icon-margin: map.get($tokens, spacing-ref-2-x-small)+px,
+    padding-icon-text-icon: $spacing-ref-2-x-small $spacing-ref-medium,
+    padding-icon-text: $spacing-ref-2-x-small $spacing-ref-medium $spacing-ref-2-x-small $spacing-ref-small,
+    padding-text-icon: $spacing-ref-2-x-small $spacing-ref-small $spacing-ref-2-x-small $spacing-ref-medium,
+    button-padding: $spacing-ref-2-x-small $spacing-ref-medium,
+    hover: (
+      overlay-color: map.get($tokens, states-secondary-overlay-inverse-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-secondary-overlay-inverse-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface)),
+      border-color: map.get($tokens, on-surface-disabled),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-secondary-overlay-inverse-pressed),
+    )
+  );
+}
+
+
+@function error-inv($tokens) {
+  $spacing-ref-2-x-small: map.get($tokens, spacing-ref-2-x-small)+px; /*16px*/
+  $spacing-ref-small: map.get($tokens, spacing-ref-small)+px; /*12px*/
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium)+px; /*8px*/
+  @return (
+    type: stroked,
+    theme: error-inv,
+    color: map.get($tokens, error-inverted),
+    background-color: var(--sw-surface-inverted, map.get($tokens, neutral-700)),
+    border-radius: map.get($tokens, border-radius-sys-buttons)+px,
+    border-color: map.get($tokens, error-inverted),
+    icon-text-gap: map.get($tokens, spacing-ref-2-x-small)+px,
+    icon-margin: map.get($tokens, spacing-ref-2-x-small)+px,
+    padding-icon-text-icon: $spacing-ref-2-x-small $spacing-ref-medium,
+    padding-icon-text: $spacing-ref-2-x-small $spacing-ref-medium $spacing-ref-2-x-small $spacing-ref-small,
+    padding-text-icon: $spacing-ref-2-x-small $spacing-ref-small $spacing-ref-2-x-small $spacing-ref-medium,
+    button-padding: $spacing-ref-2-x-small $spacing-ref-medium,
+    hover: (
+      overlay-color: map.get($tokens, states-error-overlay-inverse-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-error-overlay-inverse-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface)),
+      border-color: map.get($tokens, on-surface-disabled),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-error-overlay-inverse-pressed),
+    )
+  );
+}
+

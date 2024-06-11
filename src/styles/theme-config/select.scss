@@ -1,0 +1,38 @@
+@use "sass:map";
+@use "sass:color";
+
+@function unthemed($tokens) {
+  $surface-medium: map.get($tokens, on-surface-medium-emphasis);
+  $surface-disabled: map.get($tokens, on-surface-disabled);
+  $radius: map.get($tokens, border-radius-ref-x-small);
+  $box-bg: map.get($tokens, surface);
+  $box-shadow-color: map.get($tokens, dp-03-0-color);
+  $ref-medium: map.get($tokens, spacing-ref-medium)+px;
+  $box-shadow-x: map.get($tokens, dp-03-0-x)+px;
+  $box-shadow-y: map.get($tokens, dp-03-0-y)+px;
+  $box-shadow-blur: map.get($tokens, dp-03-0-blur)+px;
+  $box-shadow-spread: map.get($tokens, dp-03-0-spread)+px;
+  $box-shadow: $box-shadow-x $box-shadow-y $box-shadow-blur $box-shadow-spread $box-shadow-color;
+  $primary: map.get($tokens, primary-variant1);
+  $font: map.get($tokens, button-font-family);
+
+  @return (
+    arrow-off: $surface-medium,
+    color-disabled: $surface-disabled,
+    check-color: $primary,
+    option-padding: $ref-medium,
+    box-bg: $box-bg,
+    box-radius: $radius,
+    bs-color: $box-shadow-color,
+    bs-x: $box-shadow-x,
+    bs-y: $box-shadow-y,
+    bs-blur: $box-shadow-blur,
+    bs-spread: $box-shadow-spread,
+    box-shadow: $box-shadow,
+    checkbox-bg: $primary,
+    check-size: $ref-medium,
+    select-font: $font,
+    label-font: $font,
+    menu-item-font: $font,
+  );
+}

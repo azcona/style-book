@@ -1,0 +1,66 @@
+@use "sass:map";
+@use "sass:meta";
+
+@mixin theme($theme) {
+
+  $tree-config: map.get($theme, tree);
+
+  --color-tree: #{map.get($tree-config, tree-color)};
+  --tree-item-padding: #{map.get($tree-config, tree-item-pad-small)} #{map.get($tree-config, tree-item-pad-medium)} #{map.get($tree-config, tree-item-pad-small)} 0;
+  --tree-padding-left-level: #{map.get($tree-config, tree-item-pad-x-small)};
+  --tree-padding-top: #{map.get($tree-config, tree-item-pad-medium)};
+  --tree-padding-bottom: #{map.get($tree-config, tree-item-pad-x-large)};
+
+  --transparent: transparent;
+
+  mat-tree.mat-tree.cdk-tree {
+    background: var(--transparent);
+  }
+
+  .mat-mdc-checkbox {
+
+  }
+
+  .sw-theme .mat-tree-node,
+  .sw-theme .mat-nested-tree-node,
+  .sw-theme .mat-mdc-checkbox .mdc-form-field {
+    color: var(--tree-color);
+    min-height: auto;
+  }
+
+  mat-tree-node.mat-tree-node.cdk-tree-node.ng-star-inserted {
+    min-height: auto;
+    padding: 0;
+    gap: var(--tree-padding-left-level);
+  }
+
+  .sw-theme .mat-tree-node, .sw-theme .mat-nested-tree-node {
+    color: var(--tree-color);
+  }
+
+  .mdc-form-field>label {
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    order: 0;
+    background: var(--transparent);
+  }
+
+  mat-tree.mat-tree.cdk-tree {
+    display: grid;
+    grid-gap: var(--tree-padding-bottom);
+    padding-top: var(--tree-padding-top);
+    padding-bottom: var(--tree-padding-bottom);
+  }
+}
+
+
+
+
+
+
+
+
+
+

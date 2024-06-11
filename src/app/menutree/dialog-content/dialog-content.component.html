@@ -1,0 +1,27 @@
+<h6 mat-dialog-title class="">Title
+</h6>
+<mat-divider></mat-divider>
+<section mat-dialog-content>
+  <p class="typography-subtitle-1"> Lorem ipsum dolor sit amet dipisicing. </p>
+  <p class="typography-body-2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum id minus obcaecati qui sint! Aliquam hic incidunt iste quae quis voluptatem. Aliquam animi aut, dolor eaque, eligendi est maiores mollitia nisi obcaecati officiis, possimus quam sunt veritatis vero voluptas voluptatem voluptatibus voluptatum. Ad asperiores beatae consectetur deserunt doloribus ea eligendi, error esse expedita, explicabo id illo ipsum iusto labore laudantium libero minus necessitatibus nisi, nobis quas quidem repellendus reprehenderit similique sunt voluptate voluptatem voluptatibus? Cum deserunt eaque error ipsa odit quibusdam sint temporibus! Aliquam aut error excepturi harum illum modi neque officiis perferendis, placeat quia sed, sint temporibus unde? Aperiam blanditiis cum cumque doloremque ea excepturi expedita facilis hic ipsa laudantium maxime quae, quod reiciendis repellat rerum soluta veritatis voluptates.
+  </p>
+  <section>
+    <div *ngFor="let item of items; let i = index" class="list-item">
+      <section class="list-item__content">
+        <ng-container>
+          <mat-checkbox class="sw-mat-accent"></mat-checkbox>
+        </ng-container>
+        <div class="header-text">
+          <span class="typography-overline">OVERLINE</span>
+          <h6 class="typography-body-2">{{ item.text }}</h6>
+        </div>
+      </section>
+    </div>
+  </section>
+</section>
+<mat-divider></mat-divider>
+<div mat-dialog-actions class="flex flex--end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close cdkFocusInitial color="primary">Accept</button>
+</div>

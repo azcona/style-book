@@ -1,0 +1,139 @@
+@use "sass:map";
+@use "sass:meta";
+
+.sw-theme .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label,
+.mat-mdc-form-field {
+  color: var(--input-label-color);
+}
+
+.sw-theme .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--input-label-color);
+}
+
+.sw-theme .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: var(--input-text-placeholder-text);
+}
+
+.sw-theme .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background: var(--input-bg-default);
+}
+
+.sw-theme .mat-mdc-form-field-focus-overlay {
+  background: var(--input-bg-default);
+}
+
+.sw-theme .mdc-text-field:hover {
+  background: var(--input-bg-hover);
+}
+
+.sw-theme .mdc-text-field:focus {
+  background: var(--input-bg-focus);
+}
+
+.sw-theme .mdc-text-field--disabled.mdc-text-field--filled {
+  background-color: var(--input-bg-disabled);
+}
+
+.sw-theme .mdc-text-field--filled:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before {
+  border-bottom-color: var(--input-border-color);
+}
+
+.sw-theme .mat-form-field-invalid .mdc-floating-label {
+  color: var(--mdc-theme-error) !important;
+}
+
+.sw-theme .ng-untouched.mat-focused .mdc-floating-label,
+.sw-theme .ng-valid.mat-focused .mdc-floating-label {
+  color: var(--mdc-theme-primary) !important;
+}
+
+/* Input Outlined */
+
+.sw-theme .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
+  border-top-left-radius: var(--input-border-radius);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: var(--input-border-radius);
+}
+
+.sw-theme .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-top-left-radius: 0;
+  border-top-right-radius: var(--input-border-radius);
+  border-bottom-right-radius: var(--input-border-radius);
+  border-bottom-left-radius: 0;
+}
+
+.sw-theme .mdc-text-field--outlined:hover {
+  background: var(--input-outlined-bg-hover);
+}
+
+.sw-theme .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.sw-theme .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.sw-theme .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: var(--input-outlined-border-color);
+}
+
+.sw-theme .mdc-text-field--disabled.mdc-text-field--filled .mat-icon,
+.sw-theme .mdc-text-field.mdc-text-field--outlined.mdc-text-field--disabled .mat-icon {
+  color: var(--input-suffix-color-disabled);
+}
+
+
+
+@mixin theme($theme) {
+
+  $input-config: map.get($theme, input);
+
+  --input-border-radius: #{map.get($input-config, border-radius)};
+  --mdc-theme-error: #{map.get($input-config, error-color)};
+  --mdc-theme-primary: #{map.get($input-config, primary-color)};
+  --input-bg-default: #{map.get($input-config, bg-default)};
+  --input-bg-hover: #{map.get($input-config, bg-hover)};
+  --input-bg-focus: #{map.get($input-config, bg-focus)};
+  --input-bg-disabled: #{map.get($input-config, bg-disabled)};
+  --input-text-placeholder-text: #{map.get($input-config, input-text)};
+  --input-label-color: #{map.get($input-config, input-label-color)};
+  --input-label-color-primary: #{map.get($input-config, primary-color)};
+  --input-label-color-extra: #{map.get($input-config, label-extra-color)};
+  --input-border-color: #{map.get($input-config, border-color)};
+  --input-prefix-margin: #{map.get($input-config, prefix-margin)};
+  --input-suffix-margin: #{map.get($input-config, suffix-margin)};
+  --input-suffix-color-disabled: #{map.get($input-config, suffix-color-disabled)};
+  --input-padding-side: #{map.get($input-config, padding-side)};
+
+  /* Outlined Vars */
+
+  --input-outlined-bg-hover: #{map.get($input-config, bg-outlined)};
+  --input-outlined-border-color: #{map.get($input-config, outlined-border-color)};
+
+
+  .mdc-text-field {
+    border-radius: var(--input-border-radius);
+    padding: 0 var(--input-padding-side);
+  }
+
+  .icon {
+    &--error {
+      color: var(--mdc-theme-error);
+    }
+    &--no-error {
+      color: transparent;
+    }
+  }
+
+  .label {
+    &--extra {
+      color: var(--input-label-color-extra);
+    }
+  }
+
+  .mat-mdc-form-field-icon-prefix, [dir=rtl] .mat-mdc-form-field-icon-suffix {
+    padding: 0 var(--input-prefix-margin) 0 var(--input-prefix-margin);
+  }
+
+  .mat-mdc-form-field-icon-prefix>.mat-icon, .mat-mdc-form-field-icon-suffix>.mat-icon {
+    padding: var(--input-suffix-margin);
+    box-sizing: content-box;
+  }
+
+}

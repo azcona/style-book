@@ -1,0 +1,139 @@
+@use "sass:map";
+
+@function unthemed($tokens) {
+  $box-shadow-color: map.get($tokens, dp-04-0-color);
+  $box-shadow-x: map.get($tokens, dp-04-0-x)+px;
+  $box-shadow-y: map.get($tokens, dp-04-0-y)+px;
+  $box-shadow-blur: map.get($tokens, dp-04-0-blur)+px;
+  $box-shadow-spread: map.get($tokens, dp-04-0-spread)+px;
+  $box-shadow: $box-shadow-x $box-shadow-y $box-shadow-blur $box-shadow-spread $box-shadow-color;
+  $column-margin-top: map.get($tokens, spacing-ref-2-x-small)+px;
+  $column-margin-sides: map.get($tokens, spacing-ref-medium)+px;
+  $column-margin: $column-margin-top $column-margin-sides;
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium);
+  $logo-height: calc($spacing-ref-medium * 2)+px;
+  $toolbar-max-height: calc($spacing-ref-medium * 4)+px;
+  $breakpoint: 1400px;
+
+
+  @return (
+    toolbar-max-height: $toolbar-max-height,
+    toolbar-breakpoint: $breakpoint,
+    logo-height: $logo-height,
+    column-height: map.get($tokens, spacing-ref-3-x-large)+px,
+    column-margin: $column-margin,
+    gap: map.get($tokens, spacing-ref-x-small)+px,
+    background-color: var(--sw-surface, map.get($tokens, neutral-100)),
+    color: map.get($tokens, on-surface-high-emphasis),
+
+    bs-color: $box-shadow-color,
+    bs-x: $box-shadow-x,
+    bs-y: $box-shadow-y,
+    bs-blur: $box-shadow-blur,
+    bs-spread: $box-shadow-spread,
+    box-shadow: $box-shadow,
+);
+}
+
+@function primary($tokens) {
+  $box-shadow-color: map.get($tokens, dp-04-0-color);
+  $box-shadow-x: map.get($tokens, dp-04-0-x)+px;
+  $box-shadow-y: map.get($tokens, dp-04-0-y)+px;
+  $box-shadow-blur: map.get($tokens, dp-04-0-blur)+px;
+  $box-shadow-spread: map.get($tokens, dp-04-0-spread)+px;
+  $box-shadow: $box-shadow-x $box-shadow-y $box-shadow-blur $box-shadow-spread $box-shadow-color;
+  $column-margin-top: map.get($tokens, spacing-ref-2-x-small)+px;
+  $column-margin-sides: map.get($tokens, spacing-ref-medium)+px;
+  $column-margin: $column-margin-top $column-margin-sides;
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium);
+  $logo-height: calc($spacing-ref-medium * 2)+px;
+  $toolbar-max-height: calc($spacing-ref-medium * 4)+px;
+  $breakpoint: 1400px;
+
+  @return (
+    toolbar-max-height: $toolbar-max-height,
+    toolbar-breakpoint: $breakpoint,
+    logo-height: $logo-height,
+    column-height: map.get($tokens, spacing-ref-3-x-large)+px,
+    column-margin: $column-margin,
+    gap: map.get($tokens, spacing-ref-x-small)+px,
+    background-color: map.get($tokens, primary),
+    color: map.get($tokens, on-primary-high-emphasis),
+
+    bs-color: $box-shadow-color,
+    bs-x: $box-shadow-x,
+    bs-y: $box-shadow-y,
+    bs-blur: $box-shadow-blur,
+    bs-spread: $box-shadow-spread,
+    box-shadow: $box-shadow,
+  );
+}
+
+@function accent($tokens) {
+  $box-shadow-color: map.get($tokens, dp-04-0-color);
+  $box-shadow-x: map.get($tokens, dp-04-0-x)+px;
+  $box-shadow-y: map.get($tokens, dp-04-0-y)+px;
+  $box-shadow-blur: map.get($tokens, dp-04-0-blur)+px;
+  $box-shadow-spread: map.get($tokens, dp-04-0-spread)+px;
+  $box-shadow: $box-shadow-x $box-shadow-y $box-shadow-blur $box-shadow-spread $box-shadow-color;
+  $column-margin-top: map.get($tokens, spacing-ref-2-x-small)+px;
+  $column-margin-sides: map.get($tokens, spacing-ref-medium)+px;
+  $column-margin: $column-margin-top $column-margin-sides;
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium);
+  $logo-height: calc($spacing-ref-medium * 2)+px;
+  $toolbar-max-height: calc($spacing-ref-medium * 4)+px;
+  $breakpoint: 1400px;
+
+  @return (
+    toolbar-max-height: $toolbar-max-height,
+    toolbar-breakpoint: $breakpoint,
+    logo-height: $logo-height,
+    column-height: map.get($tokens, spacing-ref-3-x-large)+px,
+    column-margin: $column-margin,
+    gap: map.get($tokens, spacing-ref-x-small)+px,
+    background-color: map.get($tokens, secondary),
+    color: map.get($tokens, on-secondary-high-emphasis),
+
+    bs-color: $box-shadow-color,
+    bs-x: $box-shadow-x,
+    bs-y: $box-shadow-y,
+    bs-blur: $box-shadow-blur,
+    bs-spread: $box-shadow-spread,
+    box-shadow: $box-shadow,
+  );
+}
+
+@function error($tokens) {
+  $box-shadow-color: map.get($tokens, dp-04-0-color);
+  $box-shadow-x: map.get($tokens, dp-04-0-x)+px;
+  $box-shadow-y: map.get($tokens, dp-04-0-y)+px;
+  $box-shadow-blur: map.get($tokens, dp-04-0-blur)+px;
+  $box-shadow-spread: map.get($tokens, dp-04-0-spread)+px;
+  $box-shadow: $box-shadow-x $box-shadow-y $box-shadow-blur $box-shadow-spread $box-shadow-color;
+  $column-margin-top: map.get($tokens, spacing-ref-2-x-small)+px;
+  $column-margin-sides: map.get($tokens, spacing-ref-medium)+px;
+  $column-margin: $column-margin-top $column-margin-sides;
+  $spacing-ref-medium: map.get($tokens, spacing-ref-medium);
+  $logo-height: calc($spacing-ref-medium * 2)+px;
+  $toolbar-max-height: calc($spacing-ref-medium * 4)+px;
+  $breakpoint: 1400px;
+
+  @return (
+    toolbar-max-height: $toolbar-max-height,
+    toolbar-breakpoint: $breakpoint,
+    logo-height: $logo-height,
+    column-height: map.get($tokens, spacing-ref-3-x-large)+px,
+    column-margin: $column-margin,
+    gap: map.get($tokens, spacing-ref-x-small)+px,
+    background-color: map.get($tokens, error),
+    color: map.get($tokens, on-error-high-emphasis),
+
+    bs-color: $box-shadow-color,
+    bs-x: $box-shadow-x,
+    bs-y: $box-shadow-y,
+    bs-blur: $box-shadow-blur,
+    bs-spread: $box-shadow-spread,
+    box-shadow: $box-shadow,
+  );
+}
+

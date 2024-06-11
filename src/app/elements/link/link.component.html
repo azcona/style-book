@@ -1,0 +1,12 @@
+<h3>Links</h3>
+<article class="content content--dashed">
+  <ng-container *ngFor="let darkLink of ['link', 'link-dark']; let linkIndex = index">
+    <section [ngClass]="linkIndex === 0 ? 'bg-light' : 'bg-dark'" class="grid grid--1-1">
+      <ng-container *ngFor="let typo of ['typography-headline-1' , 'typography-headline-2' , 'typography-headline-3' , 'typography-headline-4' ,' typography-headline-5' , 'typography-headline-6' , 'typography-subtitle-1', 'typography-subtitle-2', 'typography-body-1', 'typography-body-2', 'typography-button', 'typography-caption', 'typography-overline']">
+        <ng-container *ngFor="let underline of ['link', 'link--underline']; let underlineIndex = index">
+          <a href="#" [ngClass]="[darkLink, typo, underline]" class="link">Link</a>
+        </ng-container>
+      </ng-container>
+    </section>
+  </ng-container>
+</article>

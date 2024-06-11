@@ -1,0 +1,135 @@
+@use "sass:map";
+@use "sass:color";
+
+@function primary($tokens) {
+  $main-color: map.get($tokens, primary-variant1);
+  $surface: map.get($tokens, surface);
+  $surface-medium: map.get($tokens, on-surface-medium-emphasis);
+  $disabled-color: map.get($tokens, on-surface-disabled);
+  $state-focus: map.get($tokens, states-primary-overlay-focused);
+  $state-hover: map.get($tokens, states-primary-overlay-hover);
+  $unselected-state-hover: map.get($tokens, states-on-surface-overlay-hover);
+  $state-pressed: map.get($tokens, states-primary-overlay-pressed);
+  $font-family: map.get($tokens, subtitle-1-font-family);
+  $font-weight: map.get($tokens, subtitle-1-font-weight);
+  $font-size: map.get($tokens, subtitle-1-font-size)+px;
+
+  @return (
+    selected-color: $main-color,
+    border-color: $surface-medium,
+    check-color: $surface,
+    unselected-color: $main-color,
+    disabled-selected-color: $disabled-color,
+    disabled-unselected-color: $disabled-color,
+    required-color: $surface-medium,
+    required-disabled: $disabled-color,
+    required-size: $font-size,
+    required-font: $font-family,
+    required-wight: $font-weight,
+
+    focus: (
+      selected-color: $state-focus,
+      unselected-color: $main-color,
+      state-focus: $state-focus,
+    ),
+    hover: (
+      selected-color: $state-hover,
+      unselected-color: $main-color,
+      unselected-state-hover: $unselected-state-hover,
+      state-hover: $state-hover,
+    ),
+    pressed: (
+      selected-color: $state-pressed,
+      unselected-color: $surface-medium
+    )
+  );
+}
+
+@function accent($tokens) {
+  $main-color: map.get($tokens, secondary);
+  $surface: map.get($tokens, surface);
+  $surface-medium: map.get($tokens, on-surface-medium-emphasis);
+  $disabled-color: map.get($tokens, on-surface-disabled);
+  $state-focus: map.get($tokens, states-secondary-overlay-focused);
+  $state-hover: map.get($tokens, states-secondary-overlay-hover);
+  $unselected-state-hover: map.get($tokens, states-on-surface-overlay-hover);
+  $state-pressed: map.get($tokens, states-secondary-overlay-pressed);
+  $font-family: map.get($tokens, subtitle-1-font-family);
+  $font-weight: map.get($tokens, subtitle-1-font-weight);
+  $font-size: map.get($tokens, subtitle-1-font-size)+px;
+
+  @return (
+    selected-color: $main-color,
+    border-color: $surface-medium,
+    check-color: $surface,
+    unselected-color: $main-color,
+    disabled-selected-color: $disabled-color,
+    disabled-unselected-color: $disabled-color,
+    required-color: $surface-medium,
+    required-disabled: $disabled-color,
+    required-size: $font-size,
+    required-font: $font-family,
+    required-wight: $font-weight,
+
+    focus: (
+      selected-color: $state-focus,
+      unselected-color: $main-color,
+      state-focus: $state-focus,
+    ),
+    hover: (
+      selected-color: $state-hover,
+      unselected-color: $main-color,
+      unselected-state-hover: $unselected-state-hover,
+      state-hover: $state-hover,
+    ),
+    pressed: (
+      selected-color: $state-pressed,
+      unselected-color: $surface-medium
+    )
+  );
+}
+
+@function error($tokens) {
+  $main-color: map.get($tokens, error);
+  $surface: map.get($tokens, surface);
+  $surface-medium: map.get($tokens, on-surface-medium-emphasis);
+  $disabled-color: map.get($tokens, on-surface-disabled);
+  $state-focus: map.get($tokens, states-error-overlay-focused);
+  $state-hover: map.get($tokens, states-error-overlay-hover);
+  $unselected-state-hover: map.get($tokens, states-on-surface-overlay-hover);
+  $state-pressed: map.get($tokens, states-error-overlay-pressed);
+  $font-family: map.get($tokens, subtitle-1-font-family);
+  $font-weight: map.get($tokens, subtitle-1-font-weight);
+  $font-size: map.get($tokens, subtitle-1-font-size)+px;
+
+
+  @return (
+    selected-color: $main-color,
+    border-color: $main-color,
+    check-color: $surface,
+    unselected-color: $main-color,
+    disabled-selected-color: $disabled-color,
+    disabled-unselected-color: $disabled-color,
+    required-color: $surface-medium,
+    required-disabled: $disabled-color,
+    required-size: $font-size,
+    required-font: $font-family,
+    required-wight: $font-weight,
+
+    focus: (
+      selected-color: $state-focus,
+      unselected-color: $main-color,
+      state-focus: $state-focus,
+    ),
+    hover: (
+      selected-color: $state-hover,
+      unselected-color: $main-color,
+      unselected-state-hover: $unselected-state-hover,
+      state-hover: $state-hover,
+    ),
+    pressed: (
+      selected-color: $state-pressed,
+      unselected-color: $surface-medium
+    )
+  );
+}

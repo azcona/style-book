@@ -1,0 +1,63 @@
+@use "sass:map";
+@use "sass:meta";
+
+@mixin theme($theme) {
+  $breakpoint-max: 1400px;
+  --dialog-min-size: 280px;
+  --dialog-max-size: 1120px;
+  --dialog-size: 80vw;
+
+  @media screen and (min-width: #{$breakpoint-max}) {
+    --dialog-size: var(--dialog-max-size);
+  }
+
+  $dialog-config: map.get($theme, dialog);
+  --overlay-bg-dialog: #{map.get($dialog-config, overlay-bg-dialog)};
+  --dialog-title-font-color: #{map.get($dialog-config, title-font-color)};
+  --dialog-title-font-family: #{map.get($dialog-config, title-font-family)};
+  --dialog-title-line-height: #{map.get($dialog-config, title-line-height)};
+  --dialog-title-font-size: #{map.get($dialog-config, title-font-size)};
+  --dialog-title-font-weight: #{map.get($dialog-config, title-font-weight)};
+  --dialog-content-padding: #{map.get($dialog-config, content-padding)};
+  --dialog-actions-padding: #{map.get($dialog-config, actions-padding-top-bottom)} #{map.get($dialog-config, actions-padding-right-left)};
+  --dialog-border-radius: #{map.get($dialog-config, border-radius)};
+  --dialog-box-shadow: #{map.get($dialog-config, box-shadow)};
+
+  .cdk-overlay-dark-backdrop {
+    background: var(--overlay-bg-dialog);
+  }
+
+  .mat-mdc-dialog-container .mdc-dialog__title {
+    color: var(--dialog-title-font-color);
+    font-family: var(--dialog-title-font-family);
+    line-height: var(--dialog-title-line-height);
+    font-size: var(--dialog-title-font-size);
+    font-weight: var(--dialog-title-font-weight);
+  }
+
+  .mat-mdc-dialog-container, .mat-mdc-dialog-container .mdc-dialog__container, .mat-mdc-dialog-container .mdc-dialog__surface {
+    max-height: inherit;
+    min-height: inherit;
+    min-width: var(--dialog-min-size);
+    max-width: inherit;
+    border-radius: var(--dialog-border-radius);
+    box-shadow: var(--dialog-box-shadow);
+  }
+  .mdc-dialog .mdc-dialog__content {
+    padding: var(--dialog-content-padding);
+  }
+  .mat-mdc-dialog-actions {
+    padding: var(--dialog-actions-padding);
+  }
+
+}
+
+
+
+
+
+
+
+
+
+

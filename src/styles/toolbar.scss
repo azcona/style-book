@@ -1,0 +1,92 @@
+@use '@angular/material' as mat;
+@use 'typography' as tipography;
+@use "sass:map";
+
+
+@mixin theme($theme) {
+  .mat-toolbar .mat-toolbar-row,
+  .mat-toolbar .mat-toolbar-single-row {
+    max-width: var(--screen-breakpoint-max);
+    max-height: var(--toolbar-max-height);
+    align-items: center;
+    padding: 0;
+  }
+
+  .toolbar {
+    align-items: center;
+    width: 100%;
+
+    &--justify {
+      display: flex;
+      align-self: center;
+      &-opposite {
+        justify-content: space-between;
+      }
+      &-center {
+        justify-content: center;
+      }
+    }
+
+    &__column {
+      display: flex;
+      align-self: center;
+      align-items: center;
+      margin: var(--toolbar-column-margin);
+      gap: var(--toolbar-gap);
+      height: var(--toolbar-column-height);
+    }
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      & img {
+        height: var(--toolbar-logo-height);
+        width: auto;
+      }
+    }
+  }
+  @include themed-toolbar($theme, unthemed);
+  @include themed-toolbar($theme, primary);
+  @include themed-toolbar($theme, accent);
+  @include themed-toolbar($theme, error);
+
+}
+
+@mixin themed-toolbar($theme, $color) {
+  .mat-toolbar.mat-#{$color} {
+    @include apply-theme(map.get($theme, toolbar-#{$color}), $color);
+  }
+
+  .mat-toolbar.mat-#{$color} .mat-mdc-icon-button,
+  .mat-toolbar.mat-#{$color} .mat-mdc-button {
+    color: var(--toolbar-text-color);
+  }
+}
+
+@mixin apply-theme($toolbar-config, $color) {
+
+  --toolbar-max-height: #{map.get($toolbar-config, toolbar-max-height)}; /* 64px; */
+  --toolbar-column-height: #{map.get($toolbar-config, column-height)}; /* 48px; */
+  --toolbar-logo-height: #{map.get($toolbar-config, logo-height)};  /* 32px; */
+  --toolbar-column-margin: #{map.get($toolbar-config, column-margin)}; /* 8px 16px; */
+  --toolbar-gap: #{map.get($toolbar-config, gap)};  /* 10px; */
+  --screen-breakpoint-max: #{map.get($toolbar-config, toolbar-breakpoint)}; /* 1400px; */
+  --toolbar-text-color: #{map.get($toolbar-config, color)};
+
+  @if $color != unthemed {
+    --sw-surface: #{map.get($toolbar-config, background-color)};
+  }
+  @else if $color == unthemed {
+    .toolbar__logo img {
+      filter: grayscale(100%);
+    }
+  }
+  @if $color == accent or $color == error {
+    .toolbar__logo img {
+      filter: grayscale(100%) brightness(0%) invert(100%);
+    }
+  }
+  background-color: map.get($toolbar-config, background-color);
+  box-shadow: map.get($toolbar-config, box-shadow);
+}
+

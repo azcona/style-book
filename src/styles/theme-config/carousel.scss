@@ -1,0 +1,22 @@
+@use "sass:map";
+@use "sass:color";
+
+@function unthemed($tokens) {
+  $indicator-size: map.get($tokens, spacing-ref-2-x-small)+px;
+  $indicator-margin: map.get($tokens, spacing-ref-3-x-small)+px;
+  $indicator-border-radius: map.get($tokens, border-radius-ref-circle)*1%;
+  $indicator-bottom: map.get($tokens, spacing-ref-medium)+px;
+  $indicator-bg: map.get($tokens, neutral-200);
+  $indicator-bg-inverted: map.get($tokens, surface-inverted);
+  $border-radius: map.get($tokens, border-radius-sys-cards)+px;
+
+  @return (
+    indicator-size: $indicator-size,
+    indicator-margin: $indicator-margin,
+    indicator-border-radius: $indicator-border-radius,
+    indicator-bottom: $indicator-bottom,
+    indicator-bg: $indicator-bg,
+    indicator-bg-inverted: $indicator-bg-inverted,
+    border-radius: $border-radius,
+  );
+}

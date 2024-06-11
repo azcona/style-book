@@ -1,0 +1,11 @@
+@use "sass:map";
+
+@function unthemed($tokens) {
+  $size: map.get($tokens, spacing-ref-2-x-small)+px;
+  $size-m: map.get($tokens, spacing-ref-medium)+px;
+
+  @return (
+    gap: $size,
+    gap-2: $size-m,
+  );
+}

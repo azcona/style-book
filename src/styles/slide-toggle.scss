@@ -1,0 +1,83 @@
+@use "sass:map";
+
+
+@mixin theme($theme) {
+  @include themed-slide($theme, unthemed);
+  @include themed-slide($theme, primary);
+  @include themed-slide($theme, accent);
+  @include themed-slide($theme, error);
+}
+
+@mixin themed-slide($theme, $color) {
+  .mat-mdc-slide-toggle.sw-mat-#{$color} {
+    @include apply-theme(map.get($theme, slide-toggle-#{$color}), $color);
+  }
+}
+
+
+.mat-mdc-slide-toggle .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus) .mdc-switch__ripple::before,
+.mat-mdc-slide-toggle .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus) .mdc-switch__ripple::after,
+.mat-mdc-slide-toggle .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus) .mdc-switch__ripple::before,
+.mat-mdc-slide-toggle .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus) .mdc-switch__ripple::after,
+.mat-mdc-slide-toggle button.mdc-switch:disabled .mdc-switch__track {
+  opacity: var(--alpha-1);
+}
+
+.mat-mdc-slide-toggle .mdc-switch {
+  margin: var(--slide-toggle-margin);
+}
+
+@mixin apply-theme($slide-toggle-config, $color) {
+  $hover-config: map.get($slide-toggle-config, hover);
+  $focus-config: map.get($slide-toggle-config, focus);
+  $pressed-config: map.get($slide-toggle-config, pressed);
+
+  --alpha-1: #{map.get($slide-toggle-config, alpha)};
+
+  /*margin*/
+  --slide-toggle-margin: #{map.get($slide-toggle-config, margin-top-bottom)} #{map.get($slide-toggle-config, margin-right)} #{map.get($slide-toggle-config, margin-top-bottom)} #{map.get($slide-toggle-config, margin-left)};
+
+  /*off*/
+  --mdc-switch-unselected-track-color: #{map.get($slide-toggle-config, background-off)};
+  --mdc-switch-unselected-icon-color: #{map.get($slide-toggle-config, icon-selected-color)};
+  --mdc-switch-unselected-handle-color: #{map.get($slide-toggle-config, circle-off)};
+
+  /*on*/
+  --mdc-switch-selected-track-color: #{map.get($slide-toggle-config, background-on)};
+  --mdc-switch-selected-icon-color: #{map.get($slide-toggle-config, icon-selected-color)};
+  --mdc-switch-selected-handle-color: #{map.get($slide-toggle-config, selected-color)};
+
+  --mdc-switch-handle-surface-color: #{map.get($slide-toggle-config, icon-selected-color)};
+
+  /*disabled*/
+  --mdc-switch-disabled-unselected-handle-color: #{map.get($slide-toggle-config, disabled-selected-color)};
+  --mdc-switch-disabled-selected-track-color: #{map.get($slide-toggle-config, disabled-selected-color)};
+  --mdc-switch-disabled-unselected-track-color: #{map.get($slide-toggle-config, background-off)};
+  --mdc-switch-disabled-selected-icon-color: #{map.get($slide-toggle-config, icon-selected-color)};
+
+
+  /* hover - pressed - focus */
+  --mdc-switch-selected-hover-track-color: #{map.get($slide-toggle-config, background-on)};
+  --mdc-switch-selected-hover-handle-color: #{map.get($hover-config, selected-color)};
+  --mdc-switch-selected-hover-state-layer-color: #{map.get($hover-config, unselected-color)};
+  --mdc-switch-unselected-hover-track-color: #{map.get($hover-config, background-off)};
+  --mdc-switch-unselected-hover-handle-color: #{map.get($slide-toggle-config, circle-off)};
+  --mdc-switch-unselected-hover-state-layer-color: #{map.get($hover-config, off-hover)};
+
+  --mdc-switch-selected-pressed-track-color: #{map.get($slide-toggle-config, background-on)};
+  --mdc-switch-selected-pressed-handle-color: #{map.get($pressed-config, selected-color)};
+  --mdc-switch-selected-pressed-state-layer-color: #{map.get($pressed-config, unselected-color)};
+  --mdc-switch-selected-pressed-state-layer-opacity: #{map.get($slide-toggle-config, alpha)};
+  --mdc-switch-unselected-pressed-track-color: #{map.get($pressed-config, background-off)};
+  --mdc-switch-unselected-pressed-handle-color: #{map.get($slide-toggle-config, circle-off)};
+  --mdc-switch-unselected-pressed-state-layer-color: #{map.get($pressed-config, off-state-pressed)};
+  --mdc-switch-unselected-pressed-state-layer-opacity: #{map.get($pressed-config, alpha)};
+
+  --mdc-switch-selected-focus-track-color: #{map.get($slide-toggle-config, background-on)};
+  --mdc-switch-selected-focus-handle-color: #{map.get($slide-toggle-config, selected-color)};
+  --mdc-switch-selected-focus-state-layer-color: #{map.get($focus-config, selected-color)};
+  --mdc-switch-unselected-focus-track-color: #{map.get($focus-config, background-off)};
+  --mdc-switch-unselected-focus-handle-color: #{map.get($slide-toggle-config, circle-off)};
+  --mdc-switch-unselected-focus-state-layer-color: #{map.get($focus-config, off-focus)};
+}
+

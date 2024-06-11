@@ -1,0 +1,59 @@
+@use "sass:map";
+@use "sass:meta";
+
+.sw-theme button.mat-mdc-menu-item .mat-icon-no-color,
+.sw-theme button.mat-mdc-menu-submenu-icon {
+  min-width: var(--menu-item-icon-min-width);
+}
+
+.sw-theme .mat-mdc-menu-item .mdc-list-item__primary-text {
+  white-space: nowrap;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  & * {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
+  &--size-m {
+    max-width: 350px;
+  }
+}
+
+@mixin theme($theme) {
+
+  $menu-config: map.get($theme, menu);
+
+  --mdc-theme-text-primary-on-background: #{map.get($menu-config, color)};
+  --menu-bg: #{map.get($menu-config, menu-bg)};
+  --menu-item-padding: #{map.get($menu-config, menu-item-padding)};
+  --menu-box-shadow:  #{map.get($menu-config, box-shadow)};
+  --menu-item-icon-min-width:  #{map.get($menu-config, icon-min-width)};
+  --menu-min-width:  50px;
+  --menu-max-width:  60vw;
+
+  .mat-mdc-menu-panel.mat-mdc-menu-panel {
+    background-color: var(--menu-bg);
+    box-shadow: var(--menu-box-shadow);
+    min-width: var(--menu-min-width);
+    max-width: var(--menu-max-width);
+  }
+
+  .mat-mdc-menu-content > * {
+    padding: 0 var(--menu-item-padding);
+  }
+}
+
+
+
+
+
+
+
+
+
+

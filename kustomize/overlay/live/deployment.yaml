@@ -1,0 +1,15 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: style-book-front
+  name: style-book-front
+spec:
+  selector:
+    matchLabels:
+      app: style-book-front
+  template:
+    metadata:
+      labels:
+        app: style-book-front

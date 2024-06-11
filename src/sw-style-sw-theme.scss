@@ -1,0 +1,12 @@
+@use 'styles/themes' as themes;
+@use 'sw-style' as sw-style;
+
+.sw-theme {
+  $theme: themes.$sw-theme;
+
+  @include sw-style.theme($theme);
+}
+
+
+
+

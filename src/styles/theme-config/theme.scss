@@ -1,0 +1,234 @@
+@use "sass:map";
+@use "basic-button" as basic-button;
+@use "raised-button" as raised-button;
+@use "stroked-button" as stroked-button;
+@use "flat-button" as flat-button;
+@use "icon-button" as icon-button;
+@use "fab-button" as fab-button;
+@use "mini-fab-button" as mini-fab-button;
+@use "card" as card;
+@use "public-vars" as public-vars;
+@use "surface" as surface;
+@use "toolbar" as toolbar;
+@use "checkbox" as checkbox;
+@use "typography" as typography;
+@use "colors" as colors;
+@use "radio-button" as radio-button;
+@use "slide-toggle" as slide-toggle;
+@use "avatar" as avatar;
+@use "flexbox-layout" as flexbox-layout;
+@use "scroll-bar" as scroll-bar;
+@use "header" as header;
+@use "image" as image;
+@use "carousel" as carousel;
+@use "divider" as divider;
+@use "link" as link;
+@use "list" as list;
+@use "tree" as tree;
+@use "menu" as menu;
+@use "box" as box;
+@use "dialog" as dialog;
+@use "expansion" as expansion;
+@use "table" as table;
+@use "input" as input;
+@use "select" as select;
+
+@function create($map-theme) {
+  @return (
+    /* Public variables*/
+    public-vars: public-vars.config($map-theme),
+
+    /* Surface*/
+    surface: surface.unthemed($map-theme),
+
+    /*Scroll-bar*/
+    scroll-bar: scroll-bar.unthemed($map-theme),
+
+    /* Toolbar */
+    toolbar-unthemed: toolbar.unthemed($map-theme),
+    toolbar-primary: toolbar.primary($map-theme),
+    toolbar-accent: toolbar.accent($map-theme),
+    toolbar-error: toolbar.error($map-theme),
+
+    /* Input */
+    input: input.unthemed($map-theme),
+
+    /* Select */
+    select: select.unthemed($map-theme),
+
+    /* Checkbox */
+    checkbox-primary: checkbox.primary($map-theme),
+    checkbox-accent: checkbox.accent($map-theme),
+    checkbox-error: checkbox.error($map-theme),
+
+    /* Radio-button */
+    radio-button-primary: radio-button.primary($map-theme),
+    radio-button-accent: radio-button.accent($map-theme),
+    radio-button-error: radio-button.error($map-theme),
+
+    /* Slide-toggle */
+    slide-toggle-unthemed: slide-toggle.unthemed($map-theme),
+    slide-toggle-primary: slide-toggle.primary($map-theme),
+    slide-toggle-accent: slide-toggle.accent($map-theme),
+    slide-toggle-error: slide-toggle.error($map-theme),
+
+    /* Surface*/
+    avatar: avatar.unthemed($map-theme),
+
+    /* Surface*/
+    flexbox-layout: flexbox-layout.unthemed($map-theme),
+
+    /* Card component*/
+    card: card.unthemed($map-theme),
+
+    /* Basic buttons */
+    button-basic-unthemed: basic-button.unthemed($map-theme),
+    button-raised-unthemed: raised-button.unthemed($map-theme),
+    button-stroked-unthemed: stroked-button.unthemed($map-theme),
+    button-flat-unthemed: flat-button.unthemed($map-theme),
+    button-icon-unthemed: icon-button.unthemed($map-theme),
+    button-fab-unthemed: fab-button.unthemed($map-theme),
+    button-mini-fab-unthemed: mini-fab-button.unthemed($map-theme),
+
+    /* Primary buttons*/
+    button-basic-primary: basic-button.primary($map-theme),
+    button-raised-primary: raised-button.primary($map-theme),
+    button-stroked-primary: stroked-button.primary($map-theme),
+    button-flat-primary: flat-button.primary($map-theme),
+    button-icon-primary: icon-button.primary($map-theme),
+    button-fab-primary: fab-button.primary($map-theme),
+    button-mini-fab-primary: mini-fab-button.primary($map-theme),
+
+    /* Accent buttons*/
+    button-basic-accent: basic-button.accent($map-theme),
+    button-raised-accent: raised-button.accent($map-theme),
+    button-stroked-accent: stroked-button.accent($map-theme),
+    button-flat-accent: flat-button.accent($map-theme),
+    button-icon-accent: icon-button.accent($map-theme),
+    button-fab-accent: fab-button.accent($map-theme),
+    button-mini-fab-accent: mini-fab-button.accent($map-theme),
+
+    /* Success buttons*/
+    button-basic-success: basic-button.success($map-theme),
+    button-raised-success: raised-button.success($map-theme),
+    button-stroked-success: stroked-button.success($map-theme),
+    button-flat-success: flat-button.success($map-theme),
+    button-icon-success: icon-button.success($map-theme),
+    button-fab-success: fab-button.success($map-theme),
+    button-mini-fab-success: mini-fab-button.success($map-theme),
+
+    /* Info buttons*/
+    button-basic-info: basic-button.info($map-theme),
+    button-raised-info: raised-button.info($map-theme),
+    button-stroked-info: stroked-button.info($map-theme),
+    button-flat-info: flat-button.info($map-theme),
+    button-icon-info: icon-button.info($map-theme),
+    button-fab-info: fab-button.info($map-theme),
+    button-mini-fab-info: mini-fab-button.info($map-theme),
+
+    /* Warn buttons*/
+    button-basic-warn: basic-button.warn($map-theme),
+    button-raised-warn: raised-button.warn($map-theme),
+    button-stroked-warn: stroked-button.warn($map-theme),
+    button-flat-warn: flat-button.warn($map-theme),
+    button-icon-warn: icon-button.warn($map-theme),
+    button-fab-warn: fab-button.warn($map-theme),
+    button-mini-fab-warn: mini-fab-button.warn($map-theme),
+
+    /* Error buttons*/
+    button-basic-error: basic-button.error($map-theme),
+    button-raised-error: raised-button.error($map-theme),
+    button-stroked-error: stroked-button.error($map-theme),
+    button-flat-error: flat-button.error($map-theme),
+    button-icon-error: icon-button.error($map-theme),
+    button-fab-error: fab-button.error($map-theme),
+    button-mini-fab-error: mini-fab-button.error($map-theme),
+
+    /* Primary-inverse buttons*/
+    button-basic-primary-inv: basic-button.primary-inv($map-theme),
+    button-raised-primary-inv: raised-button.primary-inv($map-theme),
+    button-stroked-primary-inv: stroked-button.primary-inv($map-theme),
+    button-flat-primary-inv: flat-button.primary-inv($map-theme),
+    button-icon-primary-inv: icon-button.primary-inv($map-theme),
+    button-fab-primary-inv: fab-button.primary-inv($map-theme),
+    button-mini-fab-primary-inv: mini-fab-button.primary-inv($map-theme),
+
+    /* Accent-inverse buttons*/
+    button-basic-accent-inv: basic-button.accent-inv($map-theme),
+    button-raised-accent-inv: raised-button.accent-inv($map-theme),
+    button-stroked-accent-inv: stroked-button.accent-inv($map-theme),
+    button-flat-accent-inv: flat-button.accent-inv($map-theme),
+    button-icon-accent-inv: icon-button.accent-inv($map-theme),
+    button-fab-accent-inv: fab-button.accent-inv($map-theme),
+    button-mini-fab-accent-inv: mini-fab-button.accent-inv($map-theme),
+
+    /* Error-inverse buttons*/
+    button-basic-error-inv: basic-button.error-inv($map-theme),
+    button-raised-error-inv: raised-button.error-inv($map-theme),
+    button-stroked-error-inv: stroked-button.error-inv($map-theme),
+    button-flat-error-inv: flat-button.error-inv($map-theme),
+    button-icon-error-inv: icon-button.error-inv($map-theme),
+    button-fab-error-inv: fab-button.error-inv($map-theme),
+    button-mini-fab-error-inv: mini-fab-button.error-inv($map-theme),
+
+    /* Typographies */
+    typography-headline-1: typography.headline-1($map-theme),
+    typography-headline-2: typography.headline-2($map-theme),
+    typography-headline-3: typography.headline-3($map-theme),
+    typography-headline-4: typography.headline-4($map-theme),
+    typography-headline-5: typography.headline-5($map-theme),
+    typography-headline-6: typography.headline-6($map-theme),
+    typography-subtitle-1: typography.subtitle-1($map-theme),
+    typography-subtitle-2: typography.subtitle-2($map-theme),
+    typography-body-1: typography.body-1($map-theme),
+    typography-body-2: typography.body-2($map-theme),
+    typography-button: typography.button($map-theme),
+    typography-caption: typography.caption($map-theme),
+    typography-overline: typography.overline($map-theme),
+
+    /* Colors */
+    primary-color: colors.primary($map-theme),
+    accent-color: colors.accent($map-theme),
+    neutral-color: colors.neutral($map-theme),
+    error-color: colors.error($map-theme),
+    info-color: colors.info($map-theme),
+    warning-color: colors.warn($map-theme),
+    success-color: colors.success($map-theme),
+
+    /*Header-text*/
+    header: header.unthemed($map-theme),
+
+    /*Images*/
+    image: image.unthemed($map-theme),
+
+    /*Carousel*/
+    carousel: carousel.unthemed($map-theme),
+
+    /*Box*/
+    box: box.unthemed($map-theme),
+
+    /*Dividers*/
+    divider: divider.unthemed($map-theme),
+
+    /*Link*/
+    link: link.unthemed($map-theme),
+
+    /*Lists*/
+    list: list.unthemed($map-theme),
+
+    /*Tree*/
+    tree: tree.unthemed($map-theme),
+
+    /*Menu*/
+    menu: menu.unthemed($map-theme),
+
+    /*Dialog*/
+    dialog: dialog.unthemed($map-theme),
+
+    /*Expansion Panel*/
+    expansion: expansion.unthemed($map-theme),
+
+    /*Table Panel*/
+    table: table.unthemed($map-theme),
+  );
+}

@@ -1,0 +1,147 @@
+@use "sass:map";
+@use "sass:meta";
+
+$vodka: absolute;
+
+@mixin centerX() {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin centerY() {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin frame($z-index: auto) {
+  @include size();
+  position: $vodka;
+  z-index: $z-index;
+}
+
+@mixin size($width: 100%, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+
+@mixin theme($theme) {
+
+  $carousel-config: map.get($theme, carousel);
+
+  $carousel-overlay-size: 100%;
+  $carousel-indicator-size: #{map.get($carousel-config, indicator-size)};
+  $carousel-indicator-margin: #{map.get($carousel-config, indicator-margin)};
+  $carousel-indicator-border-radius: #{map.get($carousel-config, indicator-border-radius)};
+  $carousel-indicator-bottom: #{map.get($carousel-config, indicator-bottom)};
+  $carousel-indicator-bg: #{map.get($carousel-config, indicator-bg)};
+  $carousel-indicator-bg-inverted: #{map.get($carousel-config, indicator-bg-inverted)};
+  $carousel-border-radius: #{map.get($carousel-config, border-radius)};
+
+
+  :host {
+    position: relative;
+  }
+
+  .carousel {
+    width: $carousel-overlay-size;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+
+    & > button {
+      position: absolute;
+      z-index: 1;
+      @include centerY();
+
+      &:first-of-type {
+        left: 0;
+      }
+
+      &:last-of-type {
+        right: 0;
+      }
+    }
+
+    &-list {
+      width: $carousel-overlay-size;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      position: relative;
+    }
+
+    &-slide {
+      @include size(100%, 0);
+      display: flex;
+      flex-shrink: 0;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        cursor: grab;
+      }
+    }
+
+    &-indicators {
+      display: flex;
+      position: absolute;
+      bottom: $carousel-indicator-bottom;
+      z-index: 1;
+      @include centerX();
+      outline: none;
+
+      & > i {
+        @include size($carousel-indicator-size);
+        background-color: $carousel-indicator-bg;
+        margin: $carousel-indicator-margin;
+        border-radius: $carousel-indicator-border-radius;
+        cursor: pointer;
+
+        &.active {
+          pointer-events: none;
+          background-color: $carousel-indicator-bg-inverted;
+        }
+
+        &:hover {
+          background-color: $carousel-indicator-bg-inverted;
+        }
+      }
+    }
+  }
+
+  .carousel-slide {
+    @include frame();
+    background: {
+      size: contain;
+      repeat: no-repeat;
+      position: center;
+    }
+    object-fit: contain;
+    max-width: $carousel-overlay-size;
+    max-height: $carousel-overlay-size;
+    width: auto;
+    height: auto;
+    border-radius: $carousel-border-radius;
+
+    &-overlay {
+      @include frame();
+    }
+
+    &-content {
+      @include frame(1);
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+

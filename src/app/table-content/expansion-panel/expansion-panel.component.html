@@ -1,0 +1,78 @@
+<h3>Expansion Panel!</h3>
+
+<article class="content content--dashed">
+   <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h3>Subtitle 1</h3>
+          </mat-panel-title>
+          <mat-panel-description>
+            <div class="header-text">
+              <span class="typography-overline">OVERLINE</span>
+              <p class="typography-body-2">Body 2</p>
+            </div>
+          </mat-panel-description>
+          <mat-panel-description>
+            <div class="header-text">
+              <span class="typography-overline">OVERLINE 2</span>
+              <p class="typography-body-2">Body 2</p>
+            </div>
+          </mat-panel-description>
+          <mat-panel-description>
+            <div class="header-text">
+              <span class="typography-overline">OVERLINE 3</span>
+              <p class="typography-body-2">Body 2</p>
+            </div>
+          </mat-panel-description>
+          <mat-panel-description class="panel__s">
+              <mat-icon matListItemIcon>today</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>This is the primary content of the panel.</p>
+      </mat-expansion-panel>
+      <mat-expansion-panel> <!-- the attribute hideToggle is used to hide the arrow -->
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h3>Subtitle 2</h3>
+          </mat-panel-title>
+          <mat-panel-description>
+            <div class="header-text">
+              <span class="typography-overline">OVERLINE</span>
+              <p class="typography-body-2">Body 2</p>
+            </div>
+          </mat-panel-description>
+          <mat-panel-description>
+            <div class="header-text">
+              <span class="typography-overline">OVERLINE 2</span>
+              <p class="typography-body-2">Body 2</p>
+            </div>
+          </mat-panel-description>
+          <mat-panel-description>
+            <div class="header-text">
+              <span class="typography-overline">OVERLINE 3</span>
+              <p class="typography-body-2">Body 2</p>
+            </div>
+          </mat-panel-description>
+          <mat-panel-description class="panel__s">
+            <mat-icon matListItemIcon>today</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <section class="flex">
+          <mat-form-field>
+            <mat-label>Favorite food</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Favorite food</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi">
+          </mat-form-field>
+        </section>
+        <section class="flex flex--end">
+          <button mat-button>Previous</button>
+          <button mat-button>Action 2</button>
+        </section>
+      </mat-expansion-panel>
+    </mat-accordion>
+</article>
+

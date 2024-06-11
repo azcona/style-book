@@ -1,0 +1,90 @@
+@use "sass:map";
+@use "sass:meta";
+
+@mixin theme($theme) {
+  $box-config: map.get($theme, box);
+
+  --box-bg: #{map.get($box-config, bg)};
+  --box-title: #{map.get($box-config, box-title)};
+  --box-body: #{map.get($box-config, box-body)};
+  --box-bg-neutral: #{map.get($box-config, bg-neutral)};
+  --box-bg-primary: #{map.get($box-config, bg-primary)};
+  --box-bg-accent: #{map.get($box-config, bg-accent)};
+  --box-bg-accent-title-color: #{map.get($box-config, bg-accent-title-color)};
+  --box-bg-image-title: #{map.get($box-config, bg-image-title)};
+  --box-bg-image-body: #{map.get($box-config, bg-image-body)};
+  --box-bg-accent-title: #{map.get($box-config, bg-accent-title)};
+  --box-bg-accent-body: #{map.get($box-config, bg-accent-body)};
+  --box-border-radius: #{map.get($box-config, border-radius)};
+  --box-padding: #{map.get($box-config, padding)};
+  --box-border: 1px solid var(--box-border-color);
+  --box-border-color: #{map.get($box-config, border-color)};
+  --box-shadow:  #{map.get($box-config, box-shadow)};
+
+  .box {
+    background-color: var(--box-bg);
+    border-radius: var(--box-border-radius);
+    padding: var(--box-padding);
+    border: var(--box-border);
+    color: var(--box-body);
+
+    & h1,h2,h3 {
+      color: var(--box-title);
+    }
+
+    &__elevated {
+      box-shadow: var(--box-shadow);
+      border: 0 solid;
+    }
+
+    &--bg-image {
+      background-image: url("/assets/png/box-picture.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+      & box__title {
+        color: var(--box-bg-image-title);
+      }
+      & box__title {
+        color: var(--box-bg-image-body);
+      }
+    }
+
+    &--bg-neutral {
+      background: var(--box-bg-neutral);
+    }
+
+    &--bg-primary {
+      background: var(--box-bg-primary);
+    }
+
+    &--bg-accent {
+      background: var(--box-bg-accent);
+      color: var(--box-bg-accent-body);
+      & .mat-mdc-card-subtitle,
+        .mat-mdc-card-content,
+        .mat-mdc-card-actions,
+        mat-icon {
+        color: var(--box-bg-accent-body);
+      }
+      & .mat-mdc-card-title,
+        .header-text__title {
+        color: var(--box-bg-accent-title-color);
+      }
+
+      & h1,h2,h3 {
+        color: var(--box-bg-accent-title);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+

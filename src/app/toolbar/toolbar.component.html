@@ -1,0 +1,93 @@
+<div *ngFor="let bloque of bloques" class="navbar-container">
+  <h3 class="typography-headline-6">
+    {{ bloque.title }}
+  </h3>
+
+  <mat-toolbar [color]="bloque.color" class="toolbar">
+    <mat-toolbar-row class="toolbar--justify-opposite">
+      <section class="toolbar__column">
+        <a [routerLink]="'/'" class="toolbar__logo">
+          <img src="assets/png/logo-sw-xl.svg" alt="logo">
+        </a>
+      </section>
+
+      <section class="toolbar__column">
+        <button mat-icon-button>
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </section>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-toolbar [color]="bloque.color" class="toolbar">
+    <mat-toolbar-row class="toolbar--justify-opposite">
+      <section class="toolbar__column">
+        <a [routerLink]="'/'" class="toolbar__logo">
+          <img src="assets/png/logo-sw-xl.svg" alt="logo">
+        </a>
+      </section>
+      <section class="toolbar__column">
+        <button mat-icon-button>
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </section>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row class="toolbar--justify-opposite">
+      <section class="toolbar__column">
+        <button mat-button [routerLink]="'/toolbar'">
+           Button
+        </button>
+        <button mat-button [routerLink]="'/toolbar'">
+          Button
+        </button>
+      </section>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-toolbar [color]="bloque.color" class="toolbar">
+    <mat-toolbar-row class="toolbar--justify-center">
+      <section class="toolbar__column">
+        <a [routerLink]="'/'" class="toolbar__logo">
+          <img src="assets/png/logo-sw-xl.svg" alt="logo">
+        </a>
+      </section>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row class="toolbar--justify-opposite">
+      <section class="toolbar__column">
+        <button mat-button [routerLink]="'/toolbar'">
+          <section  class="button--icon-text-icon">
+            <mat-icon>person</mat-icon>
+            <span>John Doe</span>
+            <mat-icon>more_vert</mat-icon>
+          </section>
+        </button>
+      </section>
+      <section class="toolbar__column">
+        <button mat-icon-button>
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </section>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+

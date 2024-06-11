@@ -1,0 +1,51 @@
+@use "sass:map";
+@use "sass:meta";
+
+@mixin link-styles() {
+  & {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+
+    &--underline {
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: var(--link-hovered-color);
+    }
+
+    &:focus {
+      color: var(--link-pressed-color);
+    }
+  }
+}
+
+@mixin theme($theme) {
+  $link-config: map.get($theme, link);
+
+  --link-color: #{map.get($link-config, color)};
+  --link-hovered-color: #{map.get($link-config, color-hovered)};
+  --link-pressed-color: #{map.get($link-config, color-pressed)};
+  --link-dark-color: #{map.get($link-config, dark-color)};
+  --link-dark-hovered-color: #{map.get($link-config, dark-color-hovered)};
+  --link-dark-pressed-color: #{map.get($link-config, dark-color-pressed)};
+
+  .link, .link-dark {
+    @include link-styles();
+  }
+
+  .link-dark {
+    color: var(--link-dark-color);
+
+    &--hovered,
+    &:hover {
+      color: var(--link-dark-hovered-color);
+    }
+
+    &--pressed,
+    &:focus {
+      color: var(--link-dark-pressed-color);
+    }
+  }
+}

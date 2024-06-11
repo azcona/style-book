@@ -1,0 +1,20 @@
+@use "sass:map";
+@use "sass:meta";
+@use '@angular/material' as mat;
+@use 'material-theme' as material-theme;
+@use 'typography' as typography;
+
+@mixin theme($theme) {
+
+  $surface-config: map.get($theme, surface);
+
+  .surface {
+    background-color: map.get($surface-config, background);
+  }
+
+  .surface-inverted {
+    background-color: map.get($surface-config, inverted-background);
+  }
+}
+
+

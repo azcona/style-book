@@ -1,0 +1,8 @@
+@use "sass:map";
+
+@function unthemed($tokens) {
+  @return (
+    background: var(--sw-surface, map.get($tokens, surface)),
+    inverted-background: var(--sw-surface-inverted, map.get($tokens, neutral-700)),
+  );
+}

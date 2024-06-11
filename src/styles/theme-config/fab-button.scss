@@ -1,0 +1,297 @@
+@use "sass:map";
+
+$button-fab-elevation: 5;
+$button-fab-elevation-color: #000000;
+$button-fab-elevation-opacity: 0.14;
+
+$default-overlay-opacity: 0.8;
+
+@function unthemed($tokens) {
+  @return (
+    type: fab,
+    theme: unthemed,
+    color: map.get($tokens, on-surface-high-emphasis),
+    background-color: var(--sw-surface, map.get($tokens, surface)),
+    elevation: $button-fab-elevation,
+    elevation-color: $button-fab-elevation-color,
+    elevation-opacity: $button-fab-elevation-opacity,
+    hover: (
+      overlay-color: map.get($tokens, states-black-overlay-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-black-overlay-focused),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-opacity: 0
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-black-overlay-pressed),
+    )
+  );
+}
+
+@function primary($tokens) {
+  @return (
+    type: fab,
+    theme: primary,
+    color: map.get($tokens, on-primary-high-emphasis),
+    background-color: map.get($tokens, primary),
+    elevation: $button-fab-elevation,
+    elevation-color: $button-fab-elevation-color,
+    elevation-opacity: $button-fab-elevation-opacity,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function accent($tokens) {
+  @return (
+    type: fab,
+    theme: accent,
+    color: map.get($tokens, on-secondary-high-emphasis),
+    background-color: map.get($tokens, secondary),
+    elevation: $button-fab-elevation,
+    elevation-color: $button-fab-elevation-color,
+    elevation-opacity: $button-fab-elevation-opacity,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function success($tokens) {
+  @return (
+    type: fab,
+    theme: success,
+    color: map.get($tokens, on-success-high-emphasis),
+    background-color: map.get($tokens, success-700),
+    elevation: $button-fab-elevation,
+    elevation-color: $button-fab-elevation-color,
+    elevation-opacity: $button-fab-elevation-opacity,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function info($tokens) {
+  @return (
+    type: fab,
+    theme: info,
+    color: map.get($tokens, on-link-high-emphasis),
+    background-color: map.get($tokens, info-700),
+    elevation: $button-fab-elevation,
+    elevation-color: $button-fab-elevation-color,
+    elevation-opacity: $button-fab-elevation-opacity,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function warn($tokens) {
+  @return (
+    type: fab,
+    theme: warn,
+    color: map.get($tokens, on-warn-high-emphasis),
+    background-color: map.get($tokens, warning-700),
+    elevation: $button-fab-elevation,
+    elevation-color: $button-fab-elevation-color,
+    elevation-opacity: $button-fab-elevation-opacity,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function error($tokens) {
+  @return (
+    type: fab,
+    theme: error,
+    color: map.get($tokens, on-error-high-emphasis),
+    background-color: map.get($tokens, error),
+    elevation: $button-fab-elevation,
+    elevation-color: $button-fab-elevation-color,
+    elevation-opacity: $button-fab-elevation-opacity,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function primary-inv($tokens) {
+  @return (
+    type: fab,
+    theme: primary-inv,
+    color: map.get($tokens, on-primary-high-emphasis),
+    background-color: map.get($tokens, primary-inverted),
+    elevation: $button-fab-elevation,
+    elevation-color: $button-fab-elevation-color,
+    elevation-opacity: $button-fab-elevation-opacity,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function accent-inv($tokens) {
+  @return (
+    type: fab,
+    theme: accent-inv,
+    color: map.get($tokens, on-secondary-variant-high-emphasis),
+    background-color: map.get($tokens, secondary-inverted),
+    elevation: $button-fab-elevation,
+    elevation-color: $button-fab-elevation-color,
+    elevation-opacity: $button-fab-elevation-opacity,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}
+
+@function error-inv($tokens) {
+  @return (
+    type: fab,
+    theme: error-inv,
+    color: map.get($tokens, on-error-variant-high-emphasis),
+    background-color: map.get($tokens, error-inverted),
+    elevation: $button-fab-elevation,
+    elevation-color: $button-fab-elevation-color,
+    elevation-opacity: $button-fab-elevation-opacity,
+    hover: (
+      overlay-color: map.get($tokens, states-white-overlay-hover),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    focus: (
+      overlay-color: map.get($tokens, states-white-overlay-focus),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    disabled: (
+      color: map.get($tokens, on-surface-disabled),
+      background-color: var(--sw-surface, map.get($tokens, surface)),
+      overlay-color: map.get($tokens, surface-overlay),
+      overlay-opacity: $default-overlay-opacity
+    ),
+    pressed: (
+      overlay-color: map.get($tokens, states-white-overlay-pressed),
+    )
+  );
+}

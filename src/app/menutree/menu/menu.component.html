@@ -1,0 +1,52 @@
+<h3>Menu Items</h3>
+
+<article class="flex">
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="button-container basic-button-container">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor="let subtitle of subtitles">
+      <mat-icon>share</mat-icon> {{ subtitle }}
+    </button>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="aboveMenu" class="button-container basic-button-container">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #aboveMenu="matMenu" yPosition="above">
+    <button mat-menu-item class="ellipsis ellipsis--size-m" *ngFor="let subtitle of subtitles">
+      <mat-icon>share</mat-icon> {{ subtitle }}
+    </button>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="belowMenu" class="button-container basic-button-container">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #belowMenu="matMenu" yPosition="below">
+    <button mat-menu-item class="ellipsis ellipsis--size-m" *ngFor="let subtitle of subtitles">
+      <mat-icon>share</mat-icon> {{ subtitle }}
+    </button>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="beforeMenu" class="button-container basic-button-container">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item class="ellipsis ellipsis--size-m" *ngFor="let subtitle of subtitles">
+      <mat-icon>share</mat-icon> {{ subtitle }}
+    </button>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="afterMenu" class="button-container basic-button-container">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #afterMenu="matMenu" xPosition="after">
+    <button mat-menu-item class="ellipsis ellipsis--size-m" *ngFor="let subtitle of subtitles">
+      <mat-icon>share</mat-icon> {{ subtitle }}
+    </button>
+  </mat-menu>
+
+</article>
+
+<p class="notes">Note: The menu has items that you can modify by adding the class <span class="code">"ellipsis ellipsis--size-m"</span> and you can create the effect of crop the text and add three dots at the end.<br>These classes could also be used in lists or any other text.</p>

@@ -1,0 +1,14 @@
+@use "sass:map";
+@use 'themes' as themes;
+
+@mixin export($theme) {
+
+  $public-vars-config: map.get($theme, public-vars);
+
+  --sw-neutral-25: #{map.get($public-vars-config, neutral-25)};
+  --sw-neutral-50: #{map.get($public-vars-config, neutral-50)};
+  --sw-neutral-100: #{map.get($public-vars-config, neutral-100)};
+  --sw-neutral-200: #{map.get($public-vars-config, neutral-200)};
+  --sw-primary-700: #{map.get($public-vars-config, primary-variant2)};
+  --surface-inverted: #{map.get($public-vars-config, surface-inverted)};
+}

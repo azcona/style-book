@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "sass:color";
+
+@function unthemed($tokens) {
+  $color: map.get($tokens, outline);
+  $margin: map.get($tokens, spacing-ref-2-x-small)+px;
+  $padding: map.get($tokens, spacing-ref-small)+px;
+
+  @return (
+    divider-color: $color,
+    divider-margin: $margin,
+    divider-padding: $padding,
+  );
+}

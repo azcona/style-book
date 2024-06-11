@@ -1,0 +1,62 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: style-book-front
+  name: style-book-front
+spec:
+  selector:
+    matchLabels:
+      app: style-book-front
+  strategy:
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: style-book-front
+    spec:
+      containers:
+        - name: style-book-front
+          image: image
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /manage/health
+              port: 8081
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+            failureThreshold: 20
+          readinessProbe:
+            httpGet:
+              path: /manage/health
+              port: 8081
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+            failureThreshold: 20
+          resources:
+            limits:
+              cpu: 200m
+              memory: 64Mi
+            requests:
+              cpu: 100m
+              memory: 32Mi
+          volumeMounts:
+            - name: nginx-config-volume
+              mountPath: /etc/nginx/conf.d
+            - name: mf-config-volume
+              mountPath: /usr/share/nginx/html/assets/config
+      volumes:
+        - name: nginx-config-volume
+          configMap:
+            name: style-book-front-nginx-configuration
+        - name: mf-config-volume
+          configMap:
+            name: style-book-front-assets-configuration

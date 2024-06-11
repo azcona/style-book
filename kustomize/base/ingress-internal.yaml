@@ -1,0 +1,9 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: style-book-front-ingress-internal
+  namespace: development-services
+  labels:
+    app: style-book-front
+spec:

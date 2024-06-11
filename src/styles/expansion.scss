@@ -1,0 +1,73 @@
+@use "sass:map";
+@use "sass:meta";
+@use 'typography' as typography;
+
+
+.sw-theme .mat-accordion {
+  box-shadow: var(--expansion-box-shadow);
+}
+
+.sw-theme .mat-accordion .mat-expansion-panel:first-of-type {
+  border-top-right-radius: var(--expansion-radius);
+  border-top-left-radius: var(--expansion-radius);
+}
+
+.sw-theme .mat-accordion .mat-expansion-panel:last-of-type {
+  border-bottom-right-radius: var(--expansion-radius);
+  border-bottom-left-radius: var(--expansion-radius);
+}
+
+.sw-theme .mat-expansion-panel {
+  background: var(--expansion-panel-header-bg);
+}
+
+.sw-theme .mat-expansion-panel {
+  box-shadow: var(--expansion-box-shadow) !important;
+}
+
+.sw-theme .mat-expansion-panel-header {
+  height: auto;
+  padding: var(--expansion-panel-header-padding);
+  background: var(--expansion-panel-header-bg);
+}
+
+.sw-theme .mat-expansion-panel-header-description {
+  color: inherit;
+  padding: var(--expansion-panel-header-description-padding);
+}
+
+.sw-theme .mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
+  flex-grow: 1.5;
+  margin-right: 16px;
+}
+
+.sw-theme .mat-expansion-panel-header-description {
+   flex-grow: 1;
+}
+
+.panel {
+  flex-grow: 1;
+  &__s {
+    max-width: 30px;
+  }
+}
+
+
+
+@mixin theme($theme) {
+  $expansion-config: map.get($theme, expansion);
+
+  --expansion-box-shadow: #{map.get($expansion-config, box-shadow)};
+  --expansion-radius: #{map.get($expansion-config, radius)};
+  --expansion-panel-header-padding: #{map.get($expansion-config, header-padding)};
+  --expansion-panel-header-bg: #{map.get($expansion-config, header-bg)};
+  --expansion-panel-header-description-padding: #{map.get($expansion-config, header-desc-padding)};
+
+}
+
+
+
+
+
+
+

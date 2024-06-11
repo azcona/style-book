@@ -1,0 +1,63 @@
+@use "sass:map";
+@use "sass:meta";
+
+@mixin theme($theme) {
+  $image-config: map.get($theme, image);
+
+  --image-opacity: #{map.get($image-config, opacity)};
+  --gradient-light: #{map.get($image-config, gradient-light)};
+  --gradient-dark: #{map.get($image-config, gradient-dark)};
+  --flag-image-size: #{map.get($image-config, flag-image-size)};
+
+  .image {
+    margin: 0;
+    padding: 0;
+    &--disabled {
+      opacity: var(--image-opacity);
+    }
+    &--flag {
+      border-radius: 100%;
+      height: var(--flag-image-size);
+      width: var(--flag-image-size);
+      background-size: cover;
+    }
+  }
+
+  .overlay {
+    position: relative;
+    display: inline-block;
+    & img {
+      display: block;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-light);
+      opacity: var(--image-opacity);
+      z-index: 2;
+      border-radius: inherit;
+    }
+    &--dark {
+      &::after {
+        background: var(--gradient-dark);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+

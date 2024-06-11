@@ -1,0 +1,210 @@
+@use "sass:map";
+@use "sass:color";
+
+
+@function unthemed($tokens) {
+  $background-off-color: map.get($tokens, surface-overlay);
+  $off: map.get($tokens, on-surface-medium-emphasis);
+  $main-color: map.get($tokens, on-surface-medium-emphasis);
+  $icon-color: map.get($tokens, surface);
+  $disabled-color: map.get($tokens, on-surface-disabled);
+  $state-color: map.get($tokens, states-on-surface-overlay-focused);
+  $state-pressed: map.get($tokens, states-on-surface-overlay-pressed);
+  $state-hover: map.get($tokens, states-on-surface-overlay-hover);
+  $off-state-color: map.get($tokens, states-on-surface-overlay-focused);
+  $off-state-pressed: map.get($tokens, states-on-surface-overlay-pressed);
+  $off-state-hover: map.get($tokens, states-on-surface-overlay-hover);
+  $alpha: 1;
+
+
+  @return (
+    circle-off: $off,
+    background-off: $background-off-color,
+    background-on: $state-pressed,
+    selected-color: $main-color,
+    icon-selected-color: $icon-color,
+    unselected-color: $main-color,
+    disabled-selected-color: $disabled-color,
+    disabled-unselected-color: $disabled-color,
+    alpha: $alpha,
+    margin-top-bottom: map.get($tokens, spacing-ref-2-x-small)+px,
+    margin-right: map.get($tokens, spacing-ref-medium)+px,
+    margin-left: map.get($tokens, spacing-ref-2-x-small)+px,
+
+    focus: (
+      selected-color: $main-color,
+      unselected-color: $main-color,
+      background-off: $background-off-color,
+      off-focus: $off-state-color,
+    ),
+    hover: (
+      selected-color: $main-color,
+      unselected-color: $state-color,
+      background-off: $background-off-color,
+      off-hover: $off-state-hover,
+    ),
+    pressed: (
+      selected-color: $main-color,
+      unselected-color: $state-pressed,
+      background-off: $background-off-color,
+      off-state-pressed: $off-state-pressed,
+      state-pressed: $state-pressed,
+    )
+  );
+}
+
+@function primary($tokens) {
+  $background-off-color: map.get($tokens, surface-overlay);
+  $off: map.get($tokens, on-surface-medium-emphasis);
+  $main-color: map.get($tokens, primary-variant1);
+  $icon-color: map.get($tokens, surface);
+  $disabled-color: map.get($tokens, on-surface-disabled);
+  $state-color: map.get($tokens, states-primary-overlay-focused);
+  $state-pressed: map.get($tokens, states-primary-overlay-pressed);
+  $state-hover: map.get($tokens, states-primary-overlay-hover);
+  $off-state-color: map.get($tokens, states-on-surface-overlay-focused);
+  $off-state-pressed: map.get($tokens, states-on-surface-overlay-pressed);
+  $off-state-hover: map.get($tokens, states-on-surface-overlay-hover);
+  $alpha: 1;
+
+
+  @return (
+    circle-off: $off,
+    background-off: $background-off-color,
+    background-on: $state-pressed,
+    selected-color: $main-color,
+    icon-selected-color: $icon-color,
+    unselected-color: $main-color,
+    disabled-selected-color: $disabled-color,
+    disabled-unselected-color: $disabled-color,
+    alpha: $alpha,
+    margin-top-bottom: map.get($tokens, spacing-ref-2-x-small)+px,
+    margin-right: map.get($tokens, spacing-ref-medium)+px,
+    margin-left: map.get($tokens, spacing-ref-2-x-small)+px,
+
+
+    focus: (
+      selected-color: $main-color,
+      unselected-color: $main-color,
+      background-off: $background-off-color,
+      off-focus: $off-state-color,
+    ),
+    hover: (
+      selected-color: $main-color,
+      unselected-color: $state-color,
+      background-off: $background-off-color,
+      off-hover: $off-state-hover,
+    ),
+    pressed: (
+      selected-color: $main-color,
+      unselected-color: $state-pressed,
+      background-off: $background-off-color,
+      off-state-pressed: $off-state-pressed,
+      state-pressed: $state-pressed,
+    )
+  );
+}
+
+@function accent($tokens) {
+  $background-off-color: map.get($tokens, surface-overlay);
+  $off: map.get($tokens, on-surface-medium-emphasis);
+  $main-color: map.get($tokens, secondary-600);
+  $icon-color: map.get($tokens, surface);
+  $disabled-color: map.get($tokens, on-surface-disabled);
+  $state-color: map.get($tokens, states-secondary-overlay-focused);
+  $state-pressed: map.get($tokens, states-secondary-overlay-pressed);
+  $state-hover: map.get($tokens, states-secondary-overlay-hover);
+  $off-state-color: map.get($tokens, states-on-surface-overlay-focused);
+  $off-state-pressed: map.get($tokens, states-on-surface-overlay-pressed);
+  $off-state-hover: map.get($tokens, states-on-surface-overlay-hover);
+  $alpha: 1;
+
+
+  @return (
+    circle-off: $off,
+    background-off: $background-off-color,
+    background-on: $state-pressed,
+    selected-color: $main-color,
+    icon-selected-color: $icon-color,
+    unselected-color: $main-color,
+    disabled-selected-color: $disabled-color,
+    disabled-unselected-color: $disabled-color,
+    alpha: $alpha,
+    margin-top-bottom: map.get($tokens, spacing-ref-2-x-small)+px,
+    margin-right: map.get($tokens, spacing-ref-medium)+px,
+    margin-left: map.get($tokens, spacing-ref-2-x-small)+px,
+
+
+    focus: (
+      selected-color: $main-color,
+      unselected-color: $main-color,
+      background-off: $background-off-color,
+      off-focus: $off-state-color,
+    ),
+    hover: (
+      selected-color: $main-color,
+      unselected-color: $state-color,
+      background-off: $background-off-color,
+      off-hover: $off-state-hover,
+    ),
+    pressed: (
+      selected-color: $main-color,
+      unselected-color: $state-pressed,
+      background-off: $background-off-color,
+      off-state-pressed: $off-state-pressed,
+      state-pressed: $state-pressed,
+    )
+  );
+}
+
+@function error($tokens) {
+  $background-off-color: map.get($tokens, surface-overlay);
+  $off: map.get($tokens, on-surface-medium-emphasis);
+  $main-color: map.get($tokens, error);
+  $icon-color: map.get($tokens, surface);
+  $disabled-color: map.get($tokens, on-surface-disabled);
+  $state-color: map.get($tokens, states-error-overlay-focused);
+  $state-pressed: map.get($tokens, states-error-overlay-pressed);
+  $state-hover: map.get($tokens, states-error-overlay-hover);
+  $off-state-color: map.get($tokens, states-on-surface-overlay-focused);
+  $off-state-pressed: map.get($tokens, states-on-surface-overlay-pressed);
+  $off-state-hover: map.get($tokens, states-on-surface-overlay-hover);
+  $alpha: 1;
+
+
+  @return (
+    circle-off: $off,
+    background-off: $background-off-color,
+    background-on: $state-pressed,
+    selected-color: $main-color,
+    icon-selected-color: $icon-color,
+    unselected-color: $main-color,
+    disabled-selected-color: $disabled-color,
+    disabled-unselected-color: $disabled-color,
+    alpha: $alpha,
+    margin-top-bottom: map.get($tokens, spacing-ref-2-x-small)+px,
+    margin-right: map.get($tokens, spacing-ref-medium)+px,
+    margin-left: map.get($tokens, spacing-ref-2-x-small)+px,
+
+
+    focus: (
+      selected-color: $main-color,
+      unselected-color: $main-color,
+      background-off: $background-off-color,
+      off-focus: $off-state-color,
+    ),
+    hover: (
+      selected-color: $main-color,
+      unselected-color: $state-color,
+      background-off: $background-off-color,
+      off-hover: $off-state-hover,
+    ),
+    pressed: (
+      selected-color: $main-color,
+      unselected-color: $state-pressed,
+      background-off: $background-off-color,
+      off-state-pressed: $off-state-pressed,
+      state-pressed: $state-pressed,
+    )
+  );
+}

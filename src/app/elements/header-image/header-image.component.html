@@ -1,0 +1,17 @@
+<h3>Header Image</h3>
+<article class="content content--dashed container">
+  <ng-container *ngFor="let headerImage of ['height-size--s','height-size--m','height-size--l', 'height-size--xl']">
+    <section class="item-info item-info--gap-m content" [ngClass]="headerImage">
+      <section class="flex flex--space-between">
+        <div class="header-text">
+          <span class="typography-overline">OVERLINE</span>
+          <h6 class="typography-headline-6 header-text__title">Headline 6</h6>
+          <p class="typography-body-2">Body 2</p>
+        </div>
+        <div class="header-image">
+          <img src="assets/png/img.small.png" alt="Avatar Photo">
+        </div>
+      </section>
+    </section>
+  </ng-container>
+</article>

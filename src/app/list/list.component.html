@@ -1,0 +1,322 @@
+<h2>List</h2>
+
+<article class="grid grid--auto-column-xxl">
+
+  <section class="content">
+    <mat-list class="list--bullet">
+      <mat-list-item>
+        <h2>This is the title</h2>
+      </mat-list-item>
+      <mat-list-item>Also the title</mat-list-item>
+    </mat-list>
+  </section>
+
+  <section class="content">
+    <mat-list class="list--bullet">
+      <mat-list-item>
+        <span matListItemTitle>Title</span>
+        <span matListItemLine>Second line</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Title</span>
+        <span>Second line</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Title</span>
+        Second line
+      </mat-list-item>
+    </mat-list>
+  </section>
+
+  <section class="content">
+    <mat-list class="list--bullet">
+      <mat-list-item>
+        <span matListItemTitle>Title</span>
+        <span matListItemLine>Second line</span>
+        <span matListItemLine>Third line</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Title</span>
+        <span matListItemLine>Second line. This line will truncate.</span>
+        <span>Third line</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Title</span>
+        <span matListItemLine>Second line. This line will truncate.</span>
+        Third line
+      </mat-list-item>
+    </mat-list>
+  </section>
+
+
+
+  <section class="content">
+    <mat-list>
+      <ng-container *ngFor="let item of items; let i = index">
+        <mat-list-item class="list-item--link">
+          <article class="list-item">
+            <section class="list-item__content">
+              <div class="header-text">
+                <p class="typography-body-2 header-text__title">Body 2</p>
+              </div>
+            </section>
+          </article>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
+  </section>
+
+  <section class="content">
+    <mat-list>
+      <ng-container *ngFor="let item of items; let i = index">
+        <mat-list-item class="list-item--link padding-small">
+          <article class="list-item">
+            <section class="list-item__content">
+              <div class="header-text">
+                <h3 class="typography-subtitle-1 header-text__title">Subtitle 1</h3>
+              </div>
+            </section>
+            <div class="list-item__opposite">
+              <mat-icon>drag_handle</mat-icon>
+            </div>
+          </article>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
+  </section>
+
+  <section class="content">
+    <mat-list>
+      <ng-container *ngFor="let item of items; let i = index">
+        <mat-list-item class="list-item list-item--link">
+          <article>
+            <section class="list-item__content">
+              <mat-icon matListItemIcon>edit</mat-icon>
+              <div class="header-text">
+                <p class="typography-body-2 header-text__title">Body 2</p>
+              </div>
+            </section>
+          </article>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
+  </section>
+
+</article>
+
+<h2>List Items</h2>
+
+<article class="grid grid--auto-column-xxl">
+    <section class="content">
+      <mat-selection-list>
+        <ng-container *ngFor="let item of items; let i = index">
+          <mat-list-option>
+            <article class="list-item padding-small">
+              <section class="list-item__content">
+                <ng-container *ngIf="item.avatar">
+                  <img matListItemAvatar class="avatar-photo" [src]="item.avatar" alt="Avatar">
+                </ng-container>
+                <ng-container *ngIf="item.icon">
+                  <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+                </ng-container>
+                <ng-container *ngIf="item.flag">
+                  <img class="image--flag" [src]="item.flag" alt="Avatar">
+                </ng-container>
+                <ng-container *ngIf="item.image">
+                  <img matListItemAvatar class="image" [src]="item.image" alt="Avatar">
+                </ng-container>
+                <div class="header-text">
+                  <span class="typography-overline">{{ item.overline }}</span>
+                  <h6 class="typography-subtitle-1 header-text__title">{{ item.subtitle }}</h6>
+                </div>
+              </section>
+            </article>
+          </mat-list-option>
+          <mat-divider *ngIf="!isLast(i)"></mat-divider>
+        </ng-container>
+      </mat-selection-list>
+    </section>
+
+    <section class="content">
+      <mat-list>
+        <ng-container *ngFor="let item of items; let i = index">
+            <mat-list-item class="list-item--link">
+              <article class="list-item padding-small">
+                <section class="list-item__content">
+                  <ng-container *ngIf="item.avatar">
+                    <img matListItemAvatar class="avatar-photo" [src]="item.avatar" alt="Avatar">
+                  </ng-container>
+                  <ng-container *ngIf="item.icon">
+                    <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+                  </ng-container>
+                  <ng-container *ngIf="item.flag">
+                    <img class="image--flag" [src]="item.flag" alt="Avatar">
+                  </ng-container>
+                  <ng-container *ngIf="item.image">
+                    <img matListItemAvatar class="image" [src]="item.image" alt="Avatar">
+                  </ng-container>
+                  <ng-container *ngIf="item.checkbox">
+                    <mat-checkbox class="sw-mat-accent">{{ item.checkbox }}</mat-checkbox>
+                  </ng-container>
+                  <ng-container *ngIf="item.radio">
+                    <mat-radio-button class="sw-mat-accent">{{ item.radio }}</mat-radio-button>
+                  </ng-container>
+                  <div class="header-text">
+                    <span class="typography-overline">{{ item.overline }}</span>
+                    <h6 class="typography-subtitle-1 header-text__title">{{ item.subtitle }}</h6>
+                  </div>
+                </section>
+                <div class="list-item__opposite">
+                  <button mat-icon-button aria-label="Favorite icon">
+                    <mat-icon>drag_handle</mat-icon>
+                  </button>
+                </div>
+              </article>
+            </mat-list-item>
+          <mat-divider *ngIf="!isLast(i)"></mat-divider>
+        </ng-container>
+      </mat-list>
+    </section>
+
+  <section class="content">
+    <mat-list>
+      <ng-container *ngFor="let item of items; let i = index">
+        <mat-list-item>
+          <article class="list-item padding-small">
+            <section class="list-item__content">
+              <ng-container *ngIf="item.avatar">
+                <img matListItemAvatar class="avatar-photo" [src]="item.avatar" alt="Avatar">
+              </ng-container>
+              <ng-container *ngIf="item.icon">
+                <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+              </ng-container>
+              <ng-container *ngIf="item.flag">
+                <img class="image--flag" [src]="item.flag" alt="Avatar">
+              </ng-container>
+              <ng-container *ngIf="item.image">
+                <img matListItemAvatar class="image" [src]="item.image" alt="Avatar">
+              </ng-container>
+              <ng-container *ngIf="item.checkbox">
+                <mat-checkbox class="sw-mat-accent">{{ item.checkbox }}</mat-checkbox>
+              </ng-container>
+              <ng-container *ngIf="item.radio">
+                <mat-radio-button class="sw-mat-accent">{{ item.radio }}</mat-radio-button>
+              </ng-container>
+              <div class="header-text">
+                <p class="typography-body-1 header-text__title">Body 2</p>
+              </div>
+            </section>
+            <div class="list-item__opposite">
+              <span class="typography-caption">Caption</span>
+            </div>
+          </article>
+        </mat-list-item>
+        <mat-divider *ngIf="!isLast(i)"></mat-divider>
+      </ng-container>
+    </mat-list>
+  </section>
+
+  <section class="content">
+    <mat-selection-list [multiple]="false">
+      <ng-container *ngFor="let item of items; let i = index">
+        <mat-list-option>
+          <article class="list-item">
+            <section class="list-item__content">
+              <ng-container *ngIf="item.avatar">
+                <img matListItemAvatar class="avatar-photo" [src]="item.avatar" alt="Avatar">
+              </ng-container>
+              <ng-container *ngIf="item.icon">
+                <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+              </ng-container>
+              <ng-container *ngIf="item.flag">
+                <img class="image--flag" [src]="item.flag" alt="Avatar">
+              </ng-container>
+              <ng-container *ngIf="item.image">
+                <img matListItemAvatar class="image" [src]="item.image" alt="Avatar">
+              </ng-container>
+              <div class="header-text">
+                <span class="typography-overline">{{ item.overline }}</span>
+                <h6 class="typography-subtitle-1 header-text__title">Two-Line item</h6>
+                <p class="typography-body-2">Secondary line</p>
+              </div>
+            </section>
+          </article>
+        </mat-list-option>
+        <mat-divider *ngIf="!isLast(i)"></mat-divider>
+      </ng-container>
+    </mat-selection-list>
+  </section>
+
+  <section class="content">
+    <mat-list>
+      <ng-container *ngFor="let item of items; let i = index">
+          <mat-list-item>
+            <article class="list-item">
+              <section class="list-item__content">
+                <ng-container *ngIf="item.avatar">
+                  <img matListItemAvatar class="avatar-photo" [src]="item.avatar" alt="Avatar">
+                </ng-container>
+                <ng-container *ngIf="item.icon">
+                  <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+                </ng-container>
+                <ng-container *ngIf="item.flag">
+                  <img class="image--flag" [src]="item.flag" alt="Avatar">
+                </ng-container>
+                <ng-container *ngIf="item.image">
+                  <img matListItemAvatar class="image" [src]="item.image" alt="Avatar">
+                </ng-container>
+                <ng-container *ngIf="item.checkbox">
+                  <mat-checkbox class="sw-mat-accent">{{ item.checkbox }}</mat-checkbox>
+                </ng-container>
+                <ng-container *ngIf="item.radio">
+                  <mat-radio-button class="sw-mat-accent">{{ item.radio }}</mat-radio-button>
+                </ng-container>
+                <div class="header-text">
+                  <span class="typography-overline">{{ item.overline }}</span>
+                  <h6 class="typography-subtitle-1 header-text__title">Three-Line item</h6>
+                  <p class="typography-body-2">Secondary line</p>
+                  <p class="typography-body-2">Third line</p>
+                </div>
+              </section>
+            </article>
+          </mat-list-item>
+          <mat-divider *ngIf="!isLast(i)"></mat-divider>
+        </ng-container>
+      </mat-list>
+    </section>
+
+    <section class="content">
+      <mat-list>
+        <ng-container *ngFor="let item of items; let i = index">
+          <mat-list-item>
+            <article class="list-item">
+              <section class="list-item__content">
+                <ng-container *ngIf="item.avatar">
+                  <img matListItemAvatar class="avatar-photo" [src]="item.avatar" alt="Avatar">
+                </ng-container>
+                <ng-container *ngIf="item.icon">
+                  <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+                </ng-container>
+                <ng-container *ngIf="item.flag">
+                  <img class="image--flag" [src]="item.flag" alt="Avatar">
+                </ng-container>
+                <ng-container *ngIf="item.image">
+                  <img matListItemAvatar class="image" [src]="item.image" alt="Avatar">
+                </ng-container>
+                <div class="header-text">
+                  <span class="typography-overline">{{ item.overline }}</span>
+                  <h6 class="typography-subtitle-1 header-text__title">Title</h6>
+                  <p class="typography-body-2">Lorem ipsum dolor sit amet consectetur. Odio adipiscing phasellus.</p>
+                </div>
+              </section>
+              <div class="list-item__opposite">
+                <mat-slide-toggle class="sw-mat-primary" [checked]="true"></mat-slide-toggle>
+              </div>
+            </article>
+          </mat-list-item>
+          <mat-divider *ngIf="!isLast(i)"></mat-divider>
+        </ng-container>
+      </mat-list>
+    </section>
+
+</article>

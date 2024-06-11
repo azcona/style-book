@@ -1,0 +1,50 @@
+@use "sass:map";
+@use "sass:color";
+
+@function unthemed($tokens) {
+  $border-radius: map.get($tokens, border-radius-ref-x-large)+px;
+  $bg: map.get($tokens, surface);
+  $box-title: map.get($tokens, on-surface-high-emphasis);
+  $box-body: map.get($tokens, on-surface-medium-emphasis);
+  $bg-neutral: map.get($tokens, surface-variant);
+  $bg-primary: map.get($tokens, gradient);
+  $bg-accent: map.get($tokens, secondary-700);
+  $bg-accent-title-color: map.get($tokens, on-secondary-high-emphasis);
+  $bg-image-title: map.get($tokens, on-surface-high-emphasis);
+  $bg-image-body: map.get($tokens, on-surface-medium-emphasis);
+  $bg-accent-title: map.get($tokens, on-secondary-high-emphasis);
+  $bg-accent-body: map.get($tokens, on-secondary-medium-emphasis);
+  $padding: map.get($tokens, spacing-ref-x-large)+px;
+  $border-color: map.get($tokens, outline);
+
+  $box-shadow-color: map.get($tokens, dp-03-0-color);
+  $box-shadow-x: map.get($tokens, dp-03-0-x)+px;
+  $box-shadow-y: map.get($tokens, dp-03-0-y)+px;
+  $box-shadow-blur: map.get($tokens, dp-03-0-blur)+px;
+  $box-shadow-spread: map.get($tokens, dp-03-0-spread)+px;
+  $box-shadow: $box-shadow-x $box-shadow-y $box-shadow-blur $box-shadow-spread $box-shadow-color;
+
+  @return (
+    bg: $bg,
+    box-title: $box-title,
+    box-body: $box-body,
+    bg-neutral: $bg-neutral,
+    bg-primary: $bg-primary,
+    bg-accent: $bg-accent,
+    bg-accent-title-color: $bg-accent-title-color,
+    bg-image-title: $bg-image-title,
+    bg-image-body: $bg-image-body,
+    bg-accent-title: $bg-accent-title,
+    bg-accent-body: $bg-accent-body,
+    border-radius: $border-radius,
+    border-color: $border-color,
+    padding: $padding,
+
+    bs-color: $box-shadow-color,
+    bs-x: $box-shadow-x,
+    bs-y: $box-shadow-y,
+    bs-blur: $box-shadow-blur,
+    bs-spread: $box-shadow-spread,
+    box-shadow: $box-shadow,
+  );
+}

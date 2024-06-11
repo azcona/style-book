@@ -1,0 +1,64 @@
+@use "sass:map";
+@use "sass:meta";
+
+.sw-theme .mdc-data-table__cell,
+.sw-theme .mdc-data-table__header-cell {
+  padding: var(--table-cell-padding);
+  border-bottom-color: transparent;
+  color: var(--table-color);
+
+  &:has(input[type="checkbox"]) {
+    padding: var(--table-padding-checkbox);
+  }
+}
+
+.sw-theme .mdc-data-table__header-cell {
+  border-bottom: var(--table-header-border) solid var(--table-header-border-color);
+  & > * {
+    padding: 0!important;
+    margin: 0!important;
+  }
+}
+
+.sw-theme .mat-mdc-table {
+  background: var(--table-bg);
+
+  & .mdc-data-table__row {
+    height: 0;
+
+    & td.mat-column-expandedDetail {
+      padding: 0;
+      border-bottom: var(--table-expanded-border-size) solid var(--table-expanded-border-color);
+    }
+  }
+}
+
+.table--expanded-section {
+  padding: var(--table-cell-padding);
+}
+
+.table--elevation {
+  box-shadow: var(--table-elevation-box-shadow);
+}
+
+.td {
+  &--xs {
+    width: 150px;
+  }
+}
+
+
+@mixin theme($theme) {
+  --spacing-xs: 2px;
+  $table-config: map.get($theme, table);
+
+  --table-elevation-box-shadow: #{map.get($table-config, box-shadow)};
+  --table-cell-padding: #{map.get($table-config, cell-padding)};
+  --table-bg: #{map.get($table-config, table-bg)};
+  --table-color: #{map.get($table-config, color)};
+  --table-header-border-color: #{map.get($table-config, border-color)};
+  --table-expanded-border-color: #{map.get($table-config, expanded-border-color)};
+  --table-padding-checkbox: var(--spacing-xs);
+  --table-header-border: var(--spacing-xs);
+  --table-expanded-border-size: var(--spacing-xs);
+}

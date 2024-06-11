@@ -1,0 +1,23 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+namespace: development-services
+images:
+- name: image
+  newName: 463167595377.dkr.ecr.eu-west-1.amazonaws.com/style-book-front:0.0.0-131-1-1e3d801
+configMapGenerator:
+- name: style-book-front-nginx-configuration
+  behavior: merge
+  files:
+  - config/nginx-micro-front.conf
+- name: style-book-front-assets-configuration
+  behavior: merge
+  files:
+    - config/application.config.json
+patchesStrategicMerge:
+- ingress-internal.yaml
+- ingress-public.yaml
+- deployment.yaml
+- hpa.yaml

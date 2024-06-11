@@ -1,0 +1,56 @@
+@use "sass:map";
+
+
+@mixin theme($theme) {
+
+  @include themed-radio($theme, primary);
+  @include themed-radio($theme, accent);
+  @include themed-radio($theme, error);
+
+}
+
+@mixin themed-radio($theme, $color) {
+  .mat-mdc-radio-button.sw-mat-#{$color} {
+    @include apply-theme(map.get($theme, radio-button-#{$color}), $color);
+  }
+}
+
+.mat-mdc-radio-button {
+  &:not(.mat-mdc-radio-checked) .mdc-radio__background::before {
+    background: var(--mat-mdc-radio-unchecked-ripple-color) !important;
+    opacity: 1 !important;
+  }
+}
+
+.mat-mdc-radio-button.sw-mat-error {
+  &:not(.mat-mdc-radio-checked) .mdc-radio__background::before {
+    background: var(--mdc-radio-selected-hover-icon-color) !important;
+    opacity: 0.4 !important;
+  }
+  & .mdc-radio:hover .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle {
+    border-color: var(--mdc-radio-selected-hover-icon-color) !important;
+  }
+}
+
+
+@mixin apply-theme($radio-button-config, $color) {
+  $hover-config: map.get($radio-button-config, hover);
+  $focus-config: map.get($radio-button-config, focus);
+  $pressed-config: map.get($radio-button-config, pressed);
+
+  --mdc-radio-selected-icon-color: #{map.get($radio-button-config, selected-color)};
+  --mdc-radio-selected-focus-icon-color: #{map.get($focus-config, selected-color)};
+  --mdc-radio-selected-hover-icon-color: #{map.get($hover-config, selected-color)};
+  --mdc-radio-selected-pressed-icon-color: #{map.get($pressed-config, selected-color)};
+
+  --mdc-radio-unselected-icon-color: #{map.get($radio-button-config, unselected-color)};
+  --mdc-radio-unselected-focus-icon-color: #{map.get($focus-config, unselected-color)};
+  --mdc-radio-unselected-hover-icon-color: #{map.get($hover-config, unselected-color)};
+  --mdc-radio-unselected-pressed-icon-color: #{map.get($pressed-config, unselected-color)};
+
+  --mdc-radio-disabled-selected-icon-color: #{map.get($radio-button-config, disabled-selected-color)};
+  --mdc-radio-disabled-unselected-icon-color: #{map.get($focus-config, disabled-unselected-color)};
+
+  --mat-mdc-radio-checked-ripple-color:  #{map.get($radio-button-config, selected-ripple-color)};
+  --mat-mdc-radio-unchecked-ripple-color:  #{map.get($radio-button-config, unselected-ripple-color)};
+}

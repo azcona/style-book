@@ -1,0 +1,37 @@
+<h3>Select</h3>
+
+<form class="flex flex--wrap">
+  <mat-form-field>
+    <mat-label class="label-color">Favorite food</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let food of ['None', 'Pizza', 'Burger', 'Sandwich', 'Pasta']" [value]="food">{{ food }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Toppings</mat-label>
+    <mat-select multiple>
+      <mat-option *ngFor="let topping of ['Pizza', 'Burger', 'Sandwich', 'Pasta']" [value]="topping + '1'">{{ topping }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Pokemon</mat-label>
+    <mat-select>
+      <mat-option>-- None --</mat-option>
+      <ng-container *ngFor="let group of pokemonGroups">
+        <mat-optgroup [label]="group.label" [disabled]="group.disabled">
+          <mat-option *ngFor="let pokemon of group.options" [value]="pokemon.value">{{ pokemon.label }}</mat-option>
+        </mat-optgroup>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Disabled</mat-label>
+    <mat-select [disabled]="true">
+      <mat-option *ngFor="let food of ['Pizza']" [value]="food + '2'">{{ food }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</form>
